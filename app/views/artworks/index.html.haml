@@ -1,0 +1,39 @@
+%section.admin
+  %h1 Listing artworks
+ 
+  - if notice
+    %p#notice= notice
+    
+  %ul#categoryselectlist
+    - @categories.each do |category|
+      %li
+        %a{ href: artworks_path(category_id: category.id) }=category.name
+  
+  %table
+    %thead
+      %tr
+        %th
+        %th Title
+        %th Category
+        %th.year Year
+        %th.medium Medium
+        %th.dimensions Dimensions
+        %th
+    %tbody.sorts{ data: { update_url: sort_artworks_url } }
+      - @artworks.each do |artwork|
+        = content_tag_for :tr, artwork do
+          %td= image_tag artwork.image_url(:icon).to_s
+          %td
+            = raw "<span class='sold'>&bull;</span>" if artwork.sold
+            = link_to artwork.title, artwork
+          %td= artwork.category.name
+          %td.year= artwork.year
+          %td.medium= artwork.medium
+          %td.dimensions= artwork.width.to_s + " x " +artwork.length.to_s
+          %td.actions
+            = link_to 'Show', artwork
+            = link_to 'Edit', edit_artwork_path(artwork)
+            = link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' }
+
+  .actions
+    = link_to 'New Artwork', new_artwork_path, class: 'btn'

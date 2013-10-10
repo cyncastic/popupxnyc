@@ -1,0 +1,12 @@
+%article
+  %header
+    %h1= link_to blog.title, blog
+    .posted= blog.posted
+  =image_tag blog.image_url(:large), alt: blog.title
+  .post= raw(blog.post)
+  %footer
+    .fb-like{ data: { href: blog_url(blog.id), send: 'false', layout: 'button_count', font: 'lucida grande', colorscheme: 'dark' } }
+    - if session[:user_id]
+      %ul#admin-blog
+        %li= link_to 'Edit', edit_blog_path(blog)
+        %li= link_to 'Destroy', blog, method: :delete, class: 'delete_btn', data: { confirm: 'Are you sure?' }

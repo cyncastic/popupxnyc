@@ -1,0 +1,3 @@
+- Category.order("position").each do |category|
+  -if !category.hidden
+    %li= link_to category.name, category, class: cp(category)

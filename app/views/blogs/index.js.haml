@@ -1,0 +1,8 @@
+$('.posts').append('#{escape_javascript(render partial: "blogs/blog", collection: @blogs)}');
+
+$('a.load-more-posts').attr('href', '#{blogs_path page: @blogs.next_page}');
+
+- unless @blogs.next_page
+  $('a.load-more-posts').remove();
+
+FB.XFBML.parse();

@@ -1,0 +1,29 @@
+!!! 5
+%html
+  %head
+    %title POP UP X NYC
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    %link{ href: 'http://fonts.googleapis.com/css?family=Dosis:200,400,600', rel: 'stylesheet', type: 'text/css' }
+
+  %body
+    %header#main-header
+      %h1 POP UP X NYC
+      %nav
+        %ul
+          %li= link_to 'Blog', blogs_path, class: cp(blogs_path)
+          = render '/categories/listcats'
+          %li= link_to 'Contact', contact_path, class: cp(contact_path)
+    #main-content
+      = yield
+
+    / %nav.admin
+    /   %ul
+    /     -if not session[:user_id]
+    /       %li= link_to 'Login', login_path
+    /     - if session[:user_id]
+    /       %li= link_to 'New Blog', new_blog_path
+    /       %li= link_to 'Categories', categories_path
+    /       %li= link_to 'Artwork', artworks_path
+    /       %li= link_to 'Logout', logout_path, method: :delete 
