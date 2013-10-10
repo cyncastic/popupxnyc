@@ -15,15 +15,16 @@
         }
       }
     }
+    a.blogimg{
+        border: 1px white solid;
+      img{
+      }
+    }
     .posted{
       position: absolute;
       right: 0;
       top: .5em;
       color: white;
-    }
-    img{
-      margin: .25em 0;
-      box-shadow: 0 0 10px rgba(0,0,0,.333);
     }
     .post{
       padding: .25em;
