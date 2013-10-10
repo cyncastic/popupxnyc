@@ -39,6 +39,9 @@ body{
           &:hover{
             color: #e081ad;
           }
+          &.current{
+            color: #d64175;
+          }
         }
       }
     }

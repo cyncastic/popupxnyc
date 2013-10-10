@@ -1,3 +1,73 @@
-// Place all the styles related to the blogs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.posts{
+  article{
+    padding-bottom: 1em;
+    position: relative;
+    header{
+      h1{
+        a{
+          color: #eee;
+          text-decoration: none;
+          transition: color .5s ease-in-out;
+          &:hover{
+            color: #fff;
+            background: none;
+          }
+        }
+      }
+    }
+    .posted{
+      position: absolute;
+      right: 0;
+      top: .5em;
+      color: white;
+    }
+    img{
+      margin: .25em 0;
+      box-shadow: 0 0 10px rgba(0,0,0,.333);
+    }
+    .post{
+      padding: .25em;
+      font-size: 1.125em;
+    }
+    footer{
+      .fb-like{
+        margin: .25em 0;
+      }
+      ul{
+        background: rgba(255,0,0,.25);
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+          margin: 0; 
+          padding: 0 .25em;
+          display: inline-block;
+          a{
+            text-decoration: none;
+            color: black;
+            &:hover{
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.load-more-posts{
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: #eee;
+  text-shadow: 0 0 6px rgba(0,0,0,.5);
+  font-size: 1.25em;
+  letter-spacing: .1em;
+  word-spacing: .25em;
+  font-weight: 200;
+  text-transform: uppercase;
+  transition: color .5s linear;
+  &:hover{
+    color: #e081ad;
+  }
+}

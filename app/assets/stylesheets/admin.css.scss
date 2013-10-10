@@ -1,16 +1,33 @@
 $admin: #000;
 
 nav.admin{
+  top: 0;
+  left: 0;
+  background: #eee;
+  display: block;
   ul{
+    display: block;
     margin: 0;
-    padding: 0;
+    padding: .25em 0;
     list-style: none;
+    text-align: right;
     li{
+      display: inline-block;
       a{
-        display: block;
-        padding: .5em;
+        text-transform: uppercase;
+        padding: .75em;
         text-decoration: none;
+        transition: color .5s linear;
+        font-weight: 600;
         &:hover{
+          color: #e081ad;
+        }
+        &.logout{
+          color: red;
+          margin-left: 2em; 
+        }
+        &.current{
+          color: #d64175;
         }
       }
     }
@@ -21,9 +38,9 @@ section.admin{
   position: relative;
   margin: 0 auto 1em;
   padding: .5em;
-  background: #ddd;
+  background: #222;
   h1{
-    color: #111;
+    color: #eee;
   }
   table{
     font-size: 1em;
@@ -123,9 +140,19 @@ ul#categoryselectlist{
   list-style: none;
   li{
     display: inline-block;
-    margin-left: .5em;
+    margin-left: 1em;
     a{
       text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 200;
+      color: white;
+      transition: color .5s linear;
+      &:hover{
+        color: #e081ad;
+      }
+      &.current{
+        color: #d64175;
+      }
     }
   }
   .selected{

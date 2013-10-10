@@ -1,0 +1,21 @@
+%section.admin
+
+  %h1 welcome
+  
+  %h2 add content
+  %ul
+    %li= link_to 'Blog Entry', new_blog_path, class: 'btn'
+    %li= link_to 'New Artwork', new_artwork_path, class: 'btn'
+    %li= link_to 'New Category', new_category_path, class: 'btn'
+
+  %h2 manage content
+  %ul
+    %li= link_to 'Blog', blogs_path, class: 'btn'
+    %li= link_to 'Artwork', artworks_path, class: 'btn'
+    %li= link_to 'Categories', categories_path, class: 'btn'
+
+  %h2 settings
+  %ul
+    %li= link_to 'Users', users_path, class: 'btn'
+
+  #logout= link_to 'logout', logout_path, method: :delete, class: 'btn'

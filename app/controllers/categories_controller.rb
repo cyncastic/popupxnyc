@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
+  skip_before_filter :authorize, only: [:show]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
   def index
-    @categories = Category.all
+    @categories = Category.order("position")
   end
 
   # GET /categories/1

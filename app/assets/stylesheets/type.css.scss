@@ -1,6 +1,8 @@
 body{
   font-family: 'Dosis', sans-serif;
   font-weight: 400;
+  font-size: 16px;
+
 }
 p{
   font-size: 1em;
@@ -11,7 +13,8 @@ p{
 
 h1,h2,h3,h4,h5,h6{
   margin-top: 0;
-  font-weight: 600;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 h1 {
   font-size: 2.369em;
@@ -59,4 +62,54 @@ blockquote{
   margin-top: 1.5em;
   margin-left: 3em;
   margin-bottom: 3em;
+}
+
+
+
+
+
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 1px)
+and (max-width : 480px) {
+  body{
+    font-size: 10px;
+  }
+}
+
+@media only screen 
+and (min-width : 480px)
+and (max-width : 767px) {
+  body{
+    font-size: 12px;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 768px)
+and (max-width : 1224px){
+  body{
+    font-size: 14px;
+  }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+  body{
+    font-size: 16px;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+  body{
+    font-size: 20px;
+  }
 }
