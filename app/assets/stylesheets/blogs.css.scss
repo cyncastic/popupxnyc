@@ -16,9 +16,7 @@
       }
     }
     a.blogimg{
-        border: 1px white solid;
-      img{
-      }
+      display: inline-block;
     }
     .posted{
       position: absolute;
@@ -34,7 +32,7 @@
       .fb-like{
         margin: .25em 0;
       }
-      ul{
+      ul{// bring this into admin
         background: rgba(255,0,0,.25);
         list-style: none;
         margin: 0;

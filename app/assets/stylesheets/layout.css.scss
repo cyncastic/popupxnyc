@@ -6,25 +6,25 @@ body{
   padding-top: 2em;
 }
 
-#main-header{
-  width: 20%;
-  padding-right: 1em;
+#main-header,
+#main-content{
+  border: 1px red dashed;
   float: left;
-  position: fixed;
+}
+
+#main-header{
+  background: url('http://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat right 0;
   h1{
-    margin: 0 0 1em 0;
-    padding: 150px 1em 0 0;
+    margin: 0;
+    padding: 210px 0 1em 0;
     font-size: 1.33em;
     word-spacing: .25em;
     font-weight: 200;
     text-align: right;
-    background: url('http://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat right 0;
   }
   nav{
-    padding-right: 1em;
     ul{
-      margin: 0;
-      padding: 0;
+      display: inline;
       list-style: none;
       li{
         a{
@@ -32,25 +32,51 @@ body{
           display: block;
           text-align: right;
           text-decoration: none;
-          color: #fff;
           text-transform: uppercase;
           font-size: .8em;
           letter-spacing: .2em;
-          transition: color .5s linear;
-          &:hover{
-            color: #e081ad;
-          }
-          &.current{
-            color: #d64175;
-          }
         }
       }
     }
   }
 }
 
-#main-content{
-  width: 78%;
-  padding-right: 2%;
-  float: right;
+/* Smartphones ----------- */
+@media only screen 
+and (min-width : 1px)
+and (max-width : 767px) {
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 768px)
+and (max-width : 1224px){
+  #main-header{
+    width: 250px;
+    padding-right: 40px;}
+  #main-content{
+    width: 540px;
+    margin-right: 20px;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+  #main-header{
+    width: 250px;
+    padding-right: 40px;
+    margin-right: 15px;
+  }
+  #main-content{
+    width: 920px;
+    margin-right: 20px;
+    a.blogimg{
+      box-shadow: inset 0 0 10px 1em rgba(0,0,0,.50);
+      & img{
+        width: 900px;
+        border: white solid 1px;
+      }
+    }
+  }
 }
