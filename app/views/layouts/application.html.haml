@@ -1,4 +1,4 @@
-!!! 5
+!!!5
 %html
   %head
     %title POP UP X NYC
@@ -9,20 +9,20 @@
 
   %body
 
-
-    %header#main-header
-      %h1 POPUP X NYC
-      %nav
-        %ul
-          %li= link_to 'Blog', blogs_path, class: cp(blogs_path)
-          = render '/categories/listcats'
-          %li= link_to 'Contact', contact_path, class: cp(contact_path)
-      - if session[:user_id]
-        %nav.admin
+    #main-container
+      %header#main-header
+        %h1 POPUP X NYC
+        %nav
           %ul
-            %li= link_to 'New Blog', new_blog_path, class: cp(new_blog_path)
-            %li= link_to 'Categories', categories_path, class: cp(categories_path)
-            %li= link_to 'Artwork', artworks_path, class: cp(artworks_path)
-            %li= link_to 'Logout', logout_path, class: 'logout', method: :delete 
-    #main-content
-      = yield
+            %li= link_to 'Blog', blogs_path, class: cp(blogs_path)
+            = render '/categories/listcats'
+            %li= link_to 'Contact', contact_path, class: cp(contact_path)
+        - if session[:user_id]
+          %nav.admin
+            %ul
+              %li= link_to 'New Blog', new_blog_path, class: cp(new_blog_path)
+              %li= link_to 'Categories', categories_path, class: cp(categories_path)
+              %li= link_to 'Artwork', artworks_path, class: cp(artworks_path)
+              %li= link_to 'Logout', logout_path, class: 'logout', method: :delete 
+      #main-content
+        = yield
