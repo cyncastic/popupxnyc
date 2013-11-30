@@ -16,7 +16,7 @@ body{
   padding: 50px 0 0 0;
   border: 1px white solid;
   border-top: 3px white solid;
-  
+  overflow: hidden;
   header{
     text-align: center;
     h1, h2, time, ul, li{
@@ -29,17 +29,20 @@ body{
       font-weight: 400;
       letter-spacing: .1em;
       color: red;
+      animation: dropIn 2s ease-in-out;
     }
     time{
+      display: block;
       font-size: 1.5em;
       line-height: 2em;
+      animation: flyIn 2s ease-in-out;
     }
     h2{
       font-size: 4.5em;
       font-weight: 200;
-      .red  { color: #fe0000; }
-      .white{ color: #ffffff; }
-      .black{ color: #2a2a2a; }
+      .red  { color: #fe0000; animation: fadeIn 3s linear,   redIn 2.5s linear; }
+      .white{ color: #ffffff; animation: fadeIn 2s linear, whiteIn 2.5s linear; }
+      .black{ color: #2a2a2a; animation: fadeIn 1s linear, blackIn 1.75s linear; }
     }
   }
 
@@ -49,6 +52,7 @@ body{
     text-align: justify;
     font-size: 2em;
     font-family: 'Oswald';
+    animation: fadeIn 4s ease-in-out;
     li{
       display: inline;
       letter-spacing: .1em;
@@ -71,6 +75,7 @@ body{
     background: url('http://s3-us-west-2.amazonaws.com/popupxnyc/static/splash.jpg') no-repeat white;
     color: #333;
     h1{
+      animation: rotateStudioj 1s linear;
       position: absolute;
       left: 534px;
       top: 120px;
@@ -92,10 +97,49 @@ body{
       #line1,#line2,#line3{
         position: absolute;
         top: 240px;
+        animation: fadeIn 5s linear;
       }
       #line1{ left: 125px; }
       #line2{ left: 350px; }
       #line3{ right: 90px; }
     }
   }
+}
+
+@keyframes dropIn{
+    0%{ transform: translate(0, -200px); }
+  50%{ transform: translate(0, -200px); }
+  100%{ transform: translate(0, 0); }
+}
+@keyframes flyIn{
+    0%{ transform: translate(-700px, 0); }
+   75%{ transform: translate(-700px, 0); }
+  100%{ transform: translate(0, 0); }
+}
+
+@keyframes fadeIn{
+    0%{ opacity: 0; }
+  100%{ opacity: 1; }
+}
+
+@keyframes rotateStudioj{
+    0%{ transform: scale(0); }
+  100%{ transform: scale(1); }
+}
+
+
+@keyframes redIn{ 
+    0%{ color: #2a2a2a;}
+   50%{ color: white;}
+  100%{ color: #fe0000;}
+}
+@keyframes whiteIn{ 
+    0%{ color: #fe0000;}
+   50%{ color: #2a2a2a;}
+  100%{ color: white;}
+}
+@keyframes blackIn{ 
+    0%{ color: #fe0000;}
+   50%{ color: white;}
+  100%{ color: #2a2a2a;}
 }
