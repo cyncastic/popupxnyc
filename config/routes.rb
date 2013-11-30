@@ -3,7 +3,7 @@ Popupxnyc::Application.routes.draw do
 
   resources :artworks
 
-  root 'blogs#index'
+  root 'static#home'
 
   get 'contact' => 'static#contact'
   get 'test' => 'static#test'
