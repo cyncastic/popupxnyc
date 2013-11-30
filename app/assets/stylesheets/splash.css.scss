@@ -1,0 +1,46 @@
+*, *:before, *:after { box-sizing: border-box; }
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700|Lora:400,400italic|Merriweather:400,300,700,900|Oswald);
+
+body{
+  background: #111;
+  color: white;
+  font-family: 'Lato';
+  font-weight: 100;
+}
+
+#splash{
+  background: #000;
+  header{
+    text-align: center;
+    h1, h2{ font-weight: 100; }
+    h1{
+      font-size: 8pt; 
+      color: red;
+    }
+    h2{
+      font-size: 28pt;
+      font-weight: 600;
+      .red  { color: #f00; }
+      .white{ color: #fff; }
+      .black{ color: #222;}
+    }
+  }
+  width: 936px;
+  margin: 0 auto;
+  border: 1px white solid;
+
+  ul{
+    li{
+      display: inline;
+      text-align: justify;
+      margin-right: 1em;
+    }
+  }
+  footer{
+    padding-top: 100px;
+    height: 300px;
+    background: url('/assets/splash.jpg') no-repeat white;
+    color: #333;
+  }
+}
