@@ -3,7 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,400|Oswald);
 
 body{
-  background: #111;
+  background: #151515;
   color: white;
   font-family: 'Lato';
   font-weight: 100;
@@ -17,6 +17,8 @@ body{
   border: 1px white solid;
   border-top: 3px white solid;
   overflow: hidden;
+  box-shadow: 0 0 20px black;
+  animation: fadeIn 2s linear;
   header{
     text-align: center;
     h1, h2, time, ul, li{
@@ -26,23 +28,25 @@ body{
     h1, h2{ font-weight: 100; }
     h1{
       font-size: 1.5em; 
-      font-weight: 400;
-      letter-spacing: .1em;
+      font-weight: 200;
+      letter-spacing: .15em;
       color: red;
-      animation: dropIn 2s ease-in-out;
+      animation: dropIn 4s ease-in-out;
     }
     time{
       display: block;
-      font-size: 1.5em;
+      font-size: 1.25em;
       line-height: 2em;
-      animation: flyIn 2s ease-in-out;
+      letter-spacing: .1em;
+      word-spacing: .2em;
+      animation: flyIn 4s ease-in-out;
     }
     h2{
       font-size: 4.5em;
       font-weight: 200;
-      .red  { color: #fe0000; animation: fadeIn 3s linear,   redIn 2.5s linear; }
-      .white{ color: #ffffff; animation: fadeIn 2s linear, whiteIn 2.5s linear; }
-      .black{ color: #2a2a2a; animation: fadeIn 1s linear, blackIn 1.75s linear; }
+      .red  { color: #fe0000; animation: fadeIn 3s linear,   redIn 3.5s linear; }
+      .white{ color: #ffffff; animation: fadeIn 2s linear, whiteIn 3.5s linear; }
+      .black{ color: #2a2a2a; animation: fadeIn 1s linear, blackIn 2.75s linear; font-weight: 400; }
     }
   }
 
@@ -52,7 +56,9 @@ body{
     text-align: justify;
     font-size: 2em;
     font-family: 'Oswald';
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 8s ease-in-out, zoomIn 4s linear;
+    position: relative;
+    z-index: 100;
     li{
       display: inline;
       letter-spacing: .1em;
@@ -61,6 +67,7 @@ body{
         padding: 0 10px;
         color: #2a2a2a;
         font-weight: 400;
+        animation: pulsate 1s ease-in-out infinite;
       }
       &:last-child::after{
         content: none;
@@ -74,8 +81,9 @@ body{
     height: 325px;
     background: url('http://s3-us-west-2.amazonaws.com/popupxnyc/static/splash.jpg') no-repeat white;
     color: #333;
+    animation: footerUp 4s ease-in-out;
     h1{
-      animation: rotateStudioj 1s linear;
+      animation: rotateStudioj 4s linear;
       position: absolute;
       left: 534px;
       top: 120px;
@@ -97,7 +105,7 @@ body{
       #line1,#line2,#line3{
         position: absolute;
         top: 240px;
-        animation: fadeIn 5s linear;
+        animation: fadeIn 9s ease-in-out;
       }
       #line1{ left: 125px; }
       #line2{ left: 350px; }
@@ -113,7 +121,7 @@ body{
 }
 @keyframes flyIn{
     0%{ transform: translate(-900px, 0); }
-   75%{ transform: translate(-900px, 0); }
+   55%{ transform: translate(-900px, 0); }
   100%{ transform: translate(0, 0); }
 }
 
@@ -124,22 +132,44 @@ body{
 
 @keyframes rotateStudioj{
     0%{ transform: scale(0); }
+  90%{ transform: scale(0); }
+  95%{ transform: scale(1.1); }
   100%{ transform: scale(1); }
 }
 
+@keyframes footerUp{
+    0%{ transform: translate(0, 330px); }
+   60%{ transform: translate(0, 330px); }
+  100%{ transform: translate(0, 0); }
+}
 
 @keyframes redIn{ 
     0%{ color: #2a2a2a;}
+   25%{ color: #fe0000;}
    50%{ color: white;}
+   75%{ color: #2a2a2a;}
   100%{ color: #fe0000;}
 }
 @keyframes whiteIn{ 
     0%{ color: #fe0000;}
+   25%{ color: white;}
    50%{ color: #2a2a2a;}
+   75%{ color: #fe0000;}
   100%{ color: white;}
 }
 @keyframes blackIn{ 
     0%{ color: #fe0000;}
+   50%{ color: #2a2a2a;}
    50%{ color: white;}
+   50%{ color: #fe0000;}
   100%{ color: #2a2a2a;}
+}
+
+@keyframes zoomIn{ 
+    0%{ transform: scale(9); }
+  100%{ transform: scale(1); }
+}
+
+@keyframes pulsate{
+  50%{ color: #222; }
 }
