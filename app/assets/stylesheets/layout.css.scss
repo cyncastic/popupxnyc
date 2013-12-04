@@ -1,5 +1,5 @@
 //---------------------------------------------------------------------------
-//  FRAMELESS
+//  FRAMESCSS
 //---------------------------------------------------------------------------
 
   $font-size: 16px;     // Your base font-size in pixels
@@ -25,7 +25,17 @@
   $cols14: (14 * ($column + $gutter) - $gutter) / $em;
   $cols15: (15 * ($column + $gutter) - $gutter) / $em;
   $cols16: (16 * ($column + $gutter) - $gutter) / $em;
-
+  $cols17: (17 * ($column + $gutter) - $gutter) / $em;
+  $cols18: (18 * ($column + $gutter) - $gutter) / $em;
+  $cols19: (19 * ($column + $gutter) - $gutter) / $em;
+  $cols20: (20 * ($column + $gutter) - $gutter) / $em;
+  $cols21: (21 * ($column + $gutter) - $gutter) / $em;
+  $cols22: (22 * ($column + $gutter) - $gutter) / $em;
+  $cols23: (23 * ($column + $gutter) - $gutter) / $em;
+  $cols24: (24 * ($column + $gutter) - $gutter) / $em;
+  $cols25: (25 * ($column + $gutter) - $gutter) / $em;
+  $cols26: (26 * ($column + $gutter) - $gutter) / $em;
+  
   // Column-widths in a function, in ems
   @mixin width ($cols:1) {
     width: ($cols * ($column + $gutter) - $gutter) / $em;
@@ -35,70 +45,161 @@
 //  LAYOUT
 //---------------------------------------------------------------------------
 
-$black: #171717;
-$white: #f5f5f5;
-$lpink: #f172ae;
-$dpink: #ec0075;
+  $black: #171717;
+  $white: #f5f5f5;
+  $lpink: #f172ae;
+  $dpink: #ec0075;
 
-
-
-body{
-  background: $black;
-  color: $white;
-  a{ color: $dpink; }
-}
-
-.container {
-  header.main{   
-    position: fixed;
+  body{
+    font-size: $font-size / $em;
+    line-height: 24px / $em;
     
-    width: $cols4;
-    padding-top: 200px;
-    padding-right: $gutter;
+    font-family: 'Lato';
+    font-weight: 400;
+    text-transform: uppercase;
+    
+    color: $white;
+    background: $black;
+    a{ 
+      color: $dpink;
+      text-decoration: none;
+    }
+  }
 
-    background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
-    font-family: 'Oswald', sans-serif;
-    text-align: right;
-
-    h1{
-      font-size: 1.5em;
-      line-height: 2.25em;
-      font-weight: 100;
-      word-spacing: .25em;
+  .container {
+    @include clearfix;
+    border: 1px red dashed;
+    header.main, .content{
+      border: 4px $dpink ridge;
+      float: left;
     }
 
-    nav{
-      ul li a{
-        line-height: 2em;
-        text-decoration: none;
-        color: white;
-        &:hover{
-          color: $lpink;
-        }
+    header.main{
+      float: left;     
+      padding-top: 200px;
+      padding-right: $gutter / $em;
+
+      background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
+      text-align: right;
+
+      h1{
+        font-size: 24px / $em;
+        font-weight: 200;
+        word-spacing: 2px / $em;
+        margin-bottom: 40px / $em;
       }
-      .main{ }
-      .admin{ }
+
+      nav{
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 1px;
+        ul li a{
+          line-height: 3em;
+          text-decoration: none;
+          color: white;
+          &:hover{
+            color: $lpink;
+          }
+        }
+        .main{ }
+        .admin{ }
+      }
+    }
+    .content{
+      float: right;
+      padding-top:  $gutter / $em;
     }
   }
 
-  .content{
-    width: $cols16;
-    margin-left: $cols4;
-    padding-left: $gutter;
+  section.admin{
+    display: none;
+    border: 1px red dashed;
+    background: #fff;
+    h1{
+      //font-size: 2em;
+    }
+    form{
+      label{
+        display: inline-block;
+        width: $cols2;
+      }
+      .actions{
+        text-align: right;
+      }
+    }
   }
-}
-
-
-
-
-
-
-
-
 
 //---------------------------------------------------------------------------
 //  MEDIA QUERIES
 //---------------------------------------------------------------------------
+
+  header.main, .content{
+    transition:  width .5s linear,
+                margin .5s linear;
+  }
+
+
+  /* Mobile layout: 480-767 px. Zoomed in above 480 px */
+    @media screen and (min-width: 30em){
+
+    }
+
+  /* Tablet layout: 600-911 px. Zoomed in above 600 px */
+    @media screen and (min-width: 37.5em){
+      header.main{   
+        width: $cols3;
+      }
+      .content{
+        width: $cols6;
+      }
+    }
+
+  /* Laptop layout: 912-infinity px */
+    @media screen and (min-width: 57em) {
+      .container{
+        width: $cols10;
+        header.main{ width: $cols4; }
+        .content{ width: $cols6; }
+      }
+    }
+
+  /* Full page zoom above 1024 px. Still desktop layout. */
+    @media screen and (min-width: 64em){
+      .container{
+        width: $cols14;
+        header.main{ width: $cols4; }
+        .content{ width: $cols10; }
+      }
+    }
+
+
+
+  /* FULL PAGE 13" MBP */
+    @media screen and (min-width: 80em){
+      .container{
+        width: $cols18;
+        header.main{ width: $cols4; }
+        .content{ width: $cols14; }
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
   An easy way to zoom your entire layout in or out (as long as it's set in ems).
@@ -108,14 +209,14 @@ body{
   - the second one zooms in by a factor of (16+2)/16 = 1.125  
 */
 
-@media screen and (max-width: 1px) {
-  body {
-    font-size: ($font-size - 2) / $em;
+  @media screen and (max-width: 1) {
+    body {
+      font-size: ($font-size - 2) / $em;
+    }
   }
-}
 
-@media screen and (max-width: 1px) {
-  body {
-    font-size: ($font-size + 2) / $em;
+  @media screen and (max-width: 1px) {
+    body {
+      font-size: ($font-size + 2) / $em;
+    }
   }
-}
