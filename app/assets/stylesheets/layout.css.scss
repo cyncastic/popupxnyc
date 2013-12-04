@@ -1,7 +1,6 @@
 //---------------------------------------------------------------------------
 //  FRAMESCSS
 //---------------------------------------------------------------------------
-
   $font-size: 16px;     // Your base font-size in pixels
   $em: $font-size / 1em;  // Shorthand for outputting ems
 
@@ -9,7 +8,6 @@
   $gutter: 24px;  // The gutter-width of your grid in pixels
 
   // Column-widths in variables, in ems  
-
    $cols1: ( 1 * ($column + $gutter) - $gutter) / $em;
    $cols2: ( 2 * ($column + $gutter) - $gutter) / $em;
    $cols3: ( 3 * ($column + $gutter) - $gutter) / $em;
@@ -43,8 +41,8 @@
 
   $black: #171717;
   $white: #f5f5f5;
-  $lpink: #f172ae;
-  $dpink: #ec0075;
+  $pink-light: #f172ae;
+  $pink-dark: #ec0075;
 
   body{
     font-size: $font-size / $em;
@@ -57,7 +55,7 @@
     color: $white;
     background: $black;
     a{ 
-      color: $dpink;
+      color: $pink-dark;
       text-decoration: none;
     }
   }
@@ -86,7 +84,7 @@
           text-decoration: none;
           color: white;
           &:hover{
-            color: $lpink;
+            color: $pink-light;
           }
         }
         .main{ }
@@ -138,6 +136,8 @@
       margin-right: $gutter; 
       background: rgba(255,255,0,.1); 
       color: whitesmoke; 
+      font-weight: 100;
+      font-size: .75em;
       width: $column; }
     }
   @for $i from 1 through 26 {
