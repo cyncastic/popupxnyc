@@ -1,11 +1,11 @@
 Popupxnyc::Application.routes.draw do
-  resources :users
-
-  resources :artworks
 
   root 'static#home'
 
-  get 'contact' => 'static#contact'
+  resources :users
+  resources :artworks
+
+  get 'contact' => 'contact#index'
   get 'test' => 'static#test'
   get 'admin' => 'admin#index'
 
@@ -22,4 +22,5 @@ Popupxnyc::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
+  
 end

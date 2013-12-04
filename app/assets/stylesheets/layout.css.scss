@@ -8,7 +8,8 @@
   $column: 48px;  // The column-width of your grid in pixels
   $gutter: 24px;  // The gutter-width of your grid in pixels
 
-  // Column-widths in variables, in ems
+  // Column-widths in variables, in ems  
+
    $cols1: ( 1 * ($column + $gutter) - $gutter) / $em;
    $cols2: ( 2 * ($column + $gutter) - $gutter) / $em;
    $cols3: ( 3 * ($column + $gutter) - $gutter) / $em;
@@ -35,11 +36,6 @@
   $cols24: (24 * ($column + $gutter) - $gutter) / $em;
   $cols25: (25 * ($column + $gutter) - $gutter) / $em;
   $cols26: (26 * ($column + $gutter) - $gutter) / $em;
-  
-  // Column-widths in a function, in ems
-  @mixin width ($cols:1) {
-    width: ($cols * ($column + $gutter) - $gutter) / $em;
-  }
 
 //---------------------------------------------------------------------------
 //  LAYOUT
@@ -67,28 +63,21 @@
   }
 
   .container {
-    @include clearfix;
-    border: 1px red dashed;
-    header.main, .content{
-      border: 4px $dpink ridge;
-      float: left;
-    }
-
+    @include clearfix;  
+    position: relative;
+    z-index: 99;  
+    header.main, .content{ float: left; }
     header.main{
-      float: left;     
       padding-top: 200px;
       padding-right: $gutter / $em;
-
       background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
       text-align: right;
-
       h1{
         font-size: 24px / $em;
         font-weight: 200;
         word-spacing: 2px / $em;
         margin-bottom: 40px / $em;
       }
-
       nav{
         font-family: 'Oswald', sans-serif;
         letter-spacing: 1px;
@@ -105,8 +94,8 @@
       }
     }
     .content{
-      float: right;
       padding-top:  $gutter / $em;
+      margin-left: $gutter / $em;
     }
   }
 
@@ -138,27 +127,67 @@
   }
 
 
+.test{
+  position: absolute;
+  .box{
+    float: left; 
+    background: rgba(0,0,0,.2);
+    .text{ 
+      text-align: center; 
+      height: 900px; 
+      margin-right: $gutter; 
+      background: rgba(255,255,0,.1); 
+      color: whitesmoke; 
+      width: $column; }
+    }
+  @for $i from 1 through 26 {
+    #div#{$i} { 
+      display: none;
+    }
+  }
+}
+
+
+
   /* Mobile layout: 480-767 px. Zoomed in above 480 px */
     @media screen and (min-width: 30em){
+      .container{
+        width: 100%;
+        header.main{ width: 100%; }
+        .content{ width: 100%; }
+      }
 
     }
 
   /* Tablet layout: 600-911 px. Zoomed in above 600 px */
     @media screen and (min-width: 37.5em){
-      header.main{   
-        width: $cols3;
+      .container{
+        width: $cols8;
+        header.main{ width: $cols2; }
+        .content{ width: $cols6; }
       }
-      .content{
-        width: $cols6;
+      .test{
+        @for $i from 1 through 8 {
+          #div#{$i} { 
+            display: block;
+          }
+        }
       }
     }
 
   /* Laptop layout: 912-infinity px */
     @media screen and (min-width: 57em) {
       .container{
-        width: $cols10;
+        width: $cols12;
         header.main{ width: $cols4; }
-        .content{ width: $cols6; }
+        .content{ width: $cols8; }
+      }
+      .test{
+        @for $i from 1 through 12 {
+          #div#{$i} { 
+            display: block;
+          }
+        }
       }
     }
 
@@ -169,6 +198,13 @@
         header.main{ width: $cols4; }
         .content{ width: $cols10; }
       }
+      .test{
+        @for $i from 1 through 14 {
+          #div#{$i} { 
+            display: block;
+          }
+        }
+      }
     }
 
 
@@ -177,16 +213,17 @@
     @media screen and (min-width: 80em){
       .container{
         width: $cols18;
-        header.main{ width: $cols4; }
+        header.main{ width: $cols4;}
         .content{ width: $cols14; }
       }
+      .test{
+        @for $i from 1 through 17 {
+          #div#{$i} { 
+            display: block;
+          }
+        }
+      }
     }
-
-
-
-
-
-
 
 
 
