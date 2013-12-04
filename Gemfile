@@ -5,8 +5,13 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 gem 'haml'
+
 gem 'sass-rails', '~> 4.0.0'
+gem 'bourbon'
+gem 'neat'
+
 gem 'uglifier', '>= 1.3.0'
+
 gem 'coffee-rails', '~> 4.0.0'
 
 gem 'jquery-rails'
@@ -26,9 +31,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'rails_on_heroku'
-
 group :production do 
   gem 'pg', '0.15.1'
   gem 'rails_12factor'
+  gem 'rails_on_heroku'
 end

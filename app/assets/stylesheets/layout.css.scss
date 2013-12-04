@@ -1,66 +1,121 @@
-*, *:before, *:after { box-sizing: border-box; }
+//---------------------------------------------------------------------------
+//  FRAMELESS
+//---------------------------------------------------------------------------
+
+  $font-size: 16px;     // Your base font-size in pixels
+  $em: $font-size / 1em;  // Shorthand for outputting ems
+
+  $column: 48px;  // The column-width of your grid in pixels
+  $gutter: 24px;  // The gutter-width of your grid in pixels
+
+  // Column-widths in variables, in ems
+   $cols1: ( 1 * ($column + $gutter) - $gutter) / $em;
+   $cols2: ( 2 * ($column + $gutter) - $gutter) / $em;
+   $cols3: ( 3 * ($column + $gutter) - $gutter) / $em;
+   $cols4: ( 4 * ($column + $gutter) - $gutter) / $em;
+   $cols5: ( 5 * ($column + $gutter) - $gutter) / $em;
+   $cols6: ( 6 * ($column + $gutter) - $gutter) / $em;
+   $cols7: ( 7 * ($column + $gutter) - $gutter) / $em;
+   $cols8: ( 8 * ($column + $gutter) - $gutter) / $em;
+   $cols9: ( 9 * ($column + $gutter) - $gutter) / $em;
+  $cols10: (10 * ($column + $gutter) - $gutter) / $em;
+  $cols11: (11 * ($column + $gutter) - $gutter) / $em;
+  $cols12: (12 * ($column + $gutter) - $gutter) / $em;
+  $cols13: (13 * ($column + $gutter) - $gutter) / $em;
+  $cols14: (14 * ($column + $gutter) - $gutter) / $em;
+  $cols15: (15 * ($column + $gutter) - $gutter) / $em;
+  $cols16: (16 * ($column + $gutter) - $gutter) / $em;
+
+  // Column-widths in a function, in ems
+  @mixin width ($cols:1) {
+    width: ($cols * ($column + $gutter) - $gutter) / $em;
+  }
+
+//---------------------------------------------------------------------------
+//  LAYOUT
+//---------------------------------------------------------------------------
+
+$black: #171717;
+$white: #f5f5f5;
+$lpink: #f172ae;
+$dpink: #ec0075;
+
+
 
 body{
-  background: #000;
-  color: #fff;
-  padding-top: 2em;
+  background: $black;
+  color: $white;
+  a{ color: $dpink; }
 }
 
-#main-header,
-#main-content{
-  float: left;
-}
+.container {
+  header.main{   
+    position: fixed;
+    
+    width: $cols4;
+    padding-top: 200px;
+    padding-right: $gutter;
 
-#main-header{
-  background: url('http://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat right 0;
-  h1{
-    margin: 0;
-    padding: 210px 0 1em 0;
-    font-size: 1.33em;
-    word-spacing: .25em;
-    font-weight: 200;
+    background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
+    font-family: 'Oswald', sans-serif;
     text-align: right;
-  }
-  nav{
-    ul{
-      display: inline;
-      list-style: none;
-      li{
-        a{
-          padding: .25em 0;
-          display: block;
-          text-align: right;
-          text-decoration: none;
-          text-transform: uppercase;
-          font-size: .8em;
-          letter-spacing: .2em;
+
+    h1{
+      font-size: 1.5em;
+      line-height: 2.25em;
+      font-weight: 100;
+      word-spacing: .25em;
+    }
+
+    nav{
+      ul li a{
+        line-height: 2em;
+        text-decoration: none;
+        color: white;
+        &:hover{
+          color: $lpink;
         }
       }
+      .main{ }
+      .admin{ }
     }
+  }
+
+  .content{
+    width: $cols16;
+    margin-left: $cols4;
+    padding-left: $gutter;
   }
 }
 
 
 
-@media (min-width:320px) { /* smartphones, iPhone, portrait 480x320 phones */ }
-@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
-@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
-@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
 
 
-@media (min-width:1280px) { /* hi-res laptops and desktops */ 
-  #main-container{
+
+
+
+
+//---------------------------------------------------------------------------
+//  MEDIA QUERIES
+//---------------------------------------------------------------------------
+
+/*
+  An easy way to zoom your entire layout in or out (as long as it's set in ems).
+  Just change the media queries to activate them.
+  Assuming your base font-size is 16:
+  - the first one zooms out by a factor of (16-2)/16 = 0.875
+  - the second one zooms in by a factor of (16+2)/16 = 1.125  
+*/
+
+@media screen and (max-width: 1px) {
+  body {
+    font-size: ($font-size - 2) / $em;
   }
-  #main-header{
-    width: 1706px;
+}
+
+@media screen and (max-width: 1px) {
+  body {
+    font-size: ($font-size + 2) / $em;
   }
-  #main-content{
-    width: 0;
-    a.blogimg{
-      & img{
-      }
-    }
-  }}
-
-
+}
