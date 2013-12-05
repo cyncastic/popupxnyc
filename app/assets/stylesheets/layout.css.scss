@@ -112,7 +112,6 @@
       top: 0;
       right: ($column + $gutter) / $em;
     }
-    .blogimg, .blogimg img{ @include size(910px auto); }
     .blogimg{
       vertical-align: middle;
       display: inline-block;
@@ -185,7 +184,7 @@
       .container{
         width: 100%;
         header.main{ width: 100%; }
-        .content{ width: 100%; }
+        .content{ width: 100%;}
       }
 
     }
@@ -195,8 +194,9 @@
       .container{
         width: $cols8;
         header.main{ width: $cols2; }
-        .content{ width: $cols6; }
+        .content{ width: $cols7; margin-left: $cols2 + $gutter / $em; }
       }
+      .blogimg, .blogimg img{ @include size(408px auto); }
       .test{
         @for $i from 1 through 8 {
           #div#{$i} { 
@@ -210,9 +210,10 @@
     @media screen and (min-width: 57em) {
       .container{
         width: $cols12;
-        header.main{ width: $cols4; }
-        .content{ width: $cols8; }
+        header.main{ width: $cols3; }
+        .content{ width: $cols10; margin-left: $cols3 + $gutter / $em;  }
       }
+      .blogimg, .blogimg img{ @include size(624px auto); }
       .test{
         @for $i from 1 through 12 {
           #div#{$i} { 
@@ -227,8 +228,9 @@
       .container{
         width: $cols14;
         header.main{ width: $cols4; }
-        .content{ width: $cols10; }
+        .content{ width: $cols11; margin-left: $cols4 + $gutter / $em;}
       }
+      .blogimg, .blogimg img{ @include size(696px auto); }
       .test{
         @for $i from 1 through 14 {
           #div#{$i} { 
@@ -243,8 +245,9 @@
       .container{
         width: $cols18;
         header.main{ width: $cols4;}
-        .content{ width: $cols14; margin-left: $cols4 + $gutter / $em; }
+        .content{ width: $cols15; margin-left: $cols4 + $gutter / $em; }
       }
+      .blogimg, .blogimg img{ @include size(984px auto); }
       .test{
         @for $i from 1 through 18 {
           #div#{$i} { 
@@ -259,7 +262,7 @@
 
     @media screen and (max-width: 36.5em){}
     @media screen and (max-width: 56em){    .test #div8{ width: $column; }}
-    @media screen and (max-width: 63em){    .test #div12{ width: $column; }}
+    @media screen and (max-width: 64em){    .test #div12{ width: $column; }}
     @media screen and (max-width: 79em){    .test #div14{ width: $column; }}
     @media screen and (max-width: 920em){   .test #div18{ width: $column; }}
 
