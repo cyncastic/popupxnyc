@@ -71,11 +71,13 @@
           &:hover{
             color: $pink-light;
           }
+
+          &.current{ color: $pink-dark; }
           &.current:after{
             position: absolute;
             content: '•';
             right: 2em;
-            color: $pink-dark;
+            color: $pink-light;
           }
         }
         .main{ }
