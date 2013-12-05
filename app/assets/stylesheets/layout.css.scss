@@ -1,6 +1,6 @@
-//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
 //  FRAMESCSS
-//---------------------------------------------------------------------------
+
   $font-size: 16px;     // Your base font-size in pixels
   $em: $font-size / 1em;  // Shorthand for outputting ems
 
@@ -35,40 +35,22 @@
   $cols25: (25 * ($column + $gutter) - $gutter) / $em; // 1776px
   $cols26: (26 * ($column + $gutter) - $gutter) / $em; // 1848px
 
-//---------------------------------------------------------------------------
-//  LAYOUT
-//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
+//  STRUCTURE
 
   $black: #171717;
   $white: #f5f5f5;
   $pink-light: #f172ae;
   $pink-dark: #ec0075;
 
-  body{
-    font-size: $font-size / $em;
-    line-height: 24px / $em;
-    
-    font-family: 'Lato';
-    font-weight: 400;
-    text-transform: uppercase;
-    
-    color: $white;
-    background: $black;
-    a{ 
-      color: $pink-dark;
-      text-decoration: none;
-    }
-  }
-
   .container {
     @include clearfix;  
     position: relative;
     margin: 0 auto;
-    z-index: 99; 
     header.main, .content{ float: left; position: relative; z-index: 999; }
     header.main{
       position: fixed;
-      padding-top: 200px;
+      padding-top: 195px /$em;
       padding-right: $gutter / $em;
       background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
       text-align: right;
@@ -76,7 +58,7 @@
         font-size: 24px / $em;
         font-weight: 200;
         word-spacing: 2px / $em;
-        margin-bottom: 20px / $em;
+        margin-bottom: 10px / $em;
       }
       nav{
         font-family: 'Oswald', sans-serif;
@@ -98,7 +80,7 @@
     }
   }
 
-
+  // MAKE THIS A FILE?
   .posts{
     position: relative;
     header{ position: relative;}
@@ -133,9 +115,10 @@
     }
   }
 
-
+  // MAKE THIS A FILE?
   section.admin{
     width: $cols10;
+    background: rgba(0,0,0,.66);
     h1{
       font-size: 2em;
       line-height: 3em;
@@ -156,9 +139,43 @@
     }
   }
 
-//---------------------------------------------------------------------------
+  .images{
+    li{
+      float: left;
+      a{
+        display: block;
+        border: 1px $white solid;
+        text-shadow: inset 0 0 10px 10px black;
+        img{
+          display: block;
+        }
+      }
+    }
+  }
+  .images li ,.images a, .images a img{
+    @include size(336px);
+  }
+//---------------------------------------------------------------------------------------------
+//  TYPOGRAPHY
+
+ body{
+    font-size: $font-size / $em;
+    line-height: 24px / $em;
+    
+    font-family: 'Lato';
+    font-weight: 400;
+    text-transform: uppercase;
+    
+    color: $white;
+    background: $black;
+    a{ 
+      color: $pink-dark;
+      text-decoration: none;
+    }
+  }
+
+//---------------------------------------------------------------------------------------------
 //  MEDIA QUERIES
-//---------------------------------------------------------------------------
 
   .test{
     position: fixed;
@@ -279,7 +296,10 @@
 
 
 
-/*
+
+
+
+/*---------------------------------------------------------------------------------------------
   An easy way to zoom your entire layout in or out (as long as it's set in ems).
   Just change the media queries to activate them.
   Assuming your base font-size is 16:
