@@ -15,6 +15,7 @@
         - (1..18).each do |t|
           .box{ id: 'div' + t.to_s }
             .text #{ 'col' + t.to_s }
+      
       %header.main
         %h1 POP UP X NYC
         %nav.main
@@ -29,5 +30,6 @@
               %li= link_to 'Categories', categories_path, class: cp(categories_path)
               %li= link_to 'Artwork', artworks_path, class: cp(artworks_path)
               %li= link_to 'Logout', logout_path, class: 'logout', method: :delete 
+      
       .content
         = yield

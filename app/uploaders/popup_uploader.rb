@@ -12,17 +12,17 @@ class PopupUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process :resize_to_limit => [900, 900]
+    process :resize_to_limit => [984, 984]
   end
 
   version :thumb do
     process :crop
-    process :resize_to_fill => [320, 320]
+    process :resize_to_fill => [336, 336]
   end
 
   version :icon do
     process :crop
-    process :resize_to_fill => [50, 50]
+    process :resize_to_fill => [48, 48]
   end
 
   def crop

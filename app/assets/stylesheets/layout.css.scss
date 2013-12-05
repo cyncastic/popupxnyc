@@ -8,32 +8,32 @@
   $gutter: 24px;  // The gutter-width of your grid in pixels
 
   // Column-widths in variables, in ems  
-   $cols1: ( 1 * ($column + $gutter) - $gutter) / $em;
-   $cols2: ( 2 * ($column + $gutter) - $gutter) / $em;
-   $cols3: ( 3 * ($column + $gutter) - $gutter) / $em;
-   $cols4: ( 4 * ($column + $gutter) - $gutter) / $em;
-   $cols5: ( 5 * ($column + $gutter) - $gutter) / $em;
-   $cols6: ( 6 * ($column + $gutter) - $gutter) / $em;
-   $cols7: ( 7 * ($column + $gutter) - $gutter) / $em;
-   $cols8: ( 8 * ($column + $gutter) - $gutter) / $em;
-   $cols9: ( 9 * ($column + $gutter) - $gutter) / $em;
-  $cols10: (10 * ($column + $gutter) - $gutter) / $em;
-  $cols11: (11 * ($column + $gutter) - $gutter) / $em;
-  $cols12: (12 * ($column + $gutter) - $gutter) / $em;
-  $cols13: (13 * ($column + $gutter) - $gutter) / $em;
-  $cols14: (14 * ($column + $gutter) - $gutter) / $em;
-  $cols15: (15 * ($column + $gutter) - $gutter) / $em;
-  $cols16: (16 * ($column + $gutter) - $gutter) / $em;
-  $cols17: (17 * ($column + $gutter) - $gutter) / $em;
-  $cols18: (18 * ($column + $gutter) - $gutter) / $em;
-  $cols19: (19 * ($column + $gutter) - $gutter) / $em;
-  $cols20: (20 * ($column + $gutter) - $gutter) / $em;
-  $cols21: (21 * ($column + $gutter) - $gutter) / $em;
-  $cols22: (22 * ($column + $gutter) - $gutter) / $em;
-  $cols23: (23 * ($column + $gutter) - $gutter) / $em;
-  $cols24: (24 * ($column + $gutter) - $gutter) / $em;
-  $cols25: (25 * ($column + $gutter) - $gutter) / $em;
-  $cols26: (26 * ($column + $gutter) - $gutter) / $em;
+   $cols1: ( 1 * ($column + $gutter) - $gutter) / $em; //   48px
+   $cols2: ( 2 * ($column + $gutter) - $gutter) / $em; //  120px
+   $cols3: ( 3 * ($column + $gutter) - $gutter) / $em; //  192px
+   $cols4: ( 4 * ($column + $gutter) - $gutter) / $em; //  264px
+   $cols5: ( 5 * ($column + $gutter) - $gutter) / $em; //  336px
+   $cols6: ( 6 * ($column + $gutter) - $gutter) / $em; //  408px
+   $cols7: ( 7 * ($column + $gutter) - $gutter) / $em; //  480px
+   $cols8: ( 8 * ($column + $gutter) - $gutter) / $em; //  552px
+   $cols9: ( 9 * ($column + $gutter) - $gutter) / $em; //  624px
+  $cols10: (10 * ($column + $gutter) - $gutter) / $em; //  696px
+  $cols11: (11 * ($column + $gutter) - $gutter) / $em; //  768px
+  $cols12: (12 * ($column + $gutter) - $gutter) / $em; //  840px
+  $cols13: (13 * ($column + $gutter) - $gutter) / $em; //  912px
+  $cols14: (14 * ($column + $gutter) - $gutter) / $em; //  984px
+  $cols15: (15 * ($column + $gutter) - $gutter) / $em; // 1056px
+  $cols16: (16 * ($column + $gutter) - $gutter) / $em; // 1128px
+  $cols17: (17 * ($column + $gutter) - $gutter) / $em; // 1200px
+  $cols18: (18 * ($column + $gutter) - $gutter) / $em; // 1272px
+  $cols19: (19 * ($column + $gutter) - $gutter) / $em; // 1344px
+  $cols20: (20 * ($column + $gutter) - $gutter) / $em; // 1416px
+  $cols21: (21 * ($column + $gutter) - $gutter) / $em; // 1488px
+  $cols22: (22 * ($column + $gutter) - $gutter) / $em; // 1560px
+  $cols23: (23 * ($column + $gutter) - $gutter) / $em; // 1632px
+  $cols24: (24 * ($column + $gutter) - $gutter) / $em; // 1704px
+  $cols25: (25 * ($column + $gutter) - $gutter) / $em; // 1776px
+  $cols26: (26 * ($column + $gutter) - $gutter) / $em; // 1848px
 
 //---------------------------------------------------------------------------
 //  LAYOUT
@@ -104,7 +104,8 @@
     header{ position: relative;}
     h1{
       font-size: 3em; 
-      line-height: 1.5em; 
+      line-height: 1.5em;
+      text-shadow: -2px -2px 0 $pink-light;
     }
     .posted{
       line-height: 4.5;
@@ -117,8 +118,8 @@
       display: inline-block;
       font-size: 0;
       height: auto;
-      border: 1px $white solid;
-      box-shadow: inset 0 0 40px black;
+      border: 2px $white solid;
+      box-shadow: inset 0 0 40px 2px black;
       display: block;
       position: relative;
       margin-bottom: 32.5em;
@@ -134,18 +135,22 @@
 
 
   section.admin{
-    display: none;
-    border: 1px red dashed;
-    background: #fff;
+    width: $cols10;
     h1{
-      //font-size: 2em;
+      font-size: 2em;
+      line-height: 3em;
     }
     form{
       label{
         display: inline-block;
         width: $cols2;
+        text-align: right;
+        margin-right: $gutter;
+        line-height: 1.5em;
       }
       .actions{
+        width: $cols6;
+        background: pink;
         text-align: right;
       }
     }
@@ -159,17 +164,20 @@
     position: fixed;
     .box{
       float: left; 
-      background: rgba(255,255,255,.05);
+      background: hotpink;
       .text{ 
         text-align: center; 
         height: ($column + $gutter)*40 / $em; 
         margin-right: $gutter; 
-        background: rgba(255,255,0,.05); 
-        color: rgba(255,255,255,.25); 
-        font-weight: 400;
-        font-size: .75em;
-        width: $column; }
+        background: $pink_dark; 
+        color: $pink-light;
+        font-weight: 600;
+        font-size: .8em;
+        width: $column;
+        position: relative;
+        z-index: 999999;
       }
+    }
     @for $i from 1 through 26 {
       #div#{$i} { 
         display: none;
@@ -180,12 +188,13 @@
 
 
   /* Mobile layout: 480-767 px. Zoomed in above 480 px */
-    @media screen and (min-width: 30em){
+    @media screen and (min-width: 1em){
       .container{
         width: 100%;
         header.main{ width: 100%; }
         .content{ width: 100%;}
       }
+      .blogimg, .blogimg img{ @include size(100% auto); }
 
     }
 
