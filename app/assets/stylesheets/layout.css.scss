@@ -51,16 +51,17 @@
     header.main{
       position: fixed;
       padding-top: 195px /$em;
-      padding-right: $gutter / $em;
       background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
       text-align: right;
       h1{
         font-size: 24px / $em;
         font-weight: 200;
-        word-spacing: 2px / $em;
+        word-spacing: 3px / $em;
         margin-bottom: 10px / $em;
+        padding-right: 1.4em;
       }
       nav{
+      padding-right: $column / $em;
         font-family: 'Oswald', sans-serif;
         letter-spacing: 1px;
         ul li a{
