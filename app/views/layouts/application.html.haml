@@ -9,12 +9,12 @@
 
   %body
 
-    .test
-      - (1..26).each do |t|
-        .box{ id: 'div' + t.to_s }
-          .text #{ 'col' + t.to_s }
-
     .container
+
+      .test
+        - (1..18).each do |t|
+          .box{ id: 'div' + t.to_s }
+            .text #{ 'col' + t.to_s }
       %header.main
         %h1 POP UP X NYC
         %nav.main

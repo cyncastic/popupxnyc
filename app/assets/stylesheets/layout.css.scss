@@ -63,9 +63,11 @@
   .container {
     @include clearfix;  
     position: relative;
-    z-index: 99;  
-    header.main, .content{ float: left; }
+    margin: 0 auto;
+    z-index: 99; 
+    header.main, .content{ float: left; position: relative; z-index: 999; }
     header.main{
+      position: fixed;
       padding-top: 200px;
       padding-right: $gutter / $em;
       background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
@@ -74,15 +76,15 @@
         font-size: 24px / $em;
         font-weight: 200;
         word-spacing: 2px / $em;
-        margin-bottom: 40px / $em;
+        margin-bottom: 20px / $em;
       }
       nav{
         font-family: 'Oswald', sans-serif;
         letter-spacing: 1px;
         ul li a{
-          line-height: 3em;
+          line-height: 2.25em;
           text-decoration: none;
-          color: white;
+          color: $white;
           &:hover{
             color: $pink-light;
           }
@@ -93,9 +95,44 @@
     }
     .content{
       padding-top:  $gutter / $em;
-      margin-left: $gutter / $em;
     }
   }
+
+
+  .posts{
+    position: relative;
+    header{ position: relative;}
+    h1{
+      font-size: 3em; 
+      line-height: 1.5em; 
+    }
+    .posted{
+      line-height: 4.5;
+      position: absolute;
+      top: 0;
+      right: ($column + $gutter) / $em;
+    }
+    .blogimg, .blogimg img{ @include size(910px auto); }
+    .blogimg{
+      vertical-align: middle;
+      display: inline-block;
+      font-size: 0;
+      height: auto;
+      border: 1px $white solid;
+      box-shadow: inset 0 0 40px black;
+      display: block;
+      position: relative;
+      margin-bottom: 32.5em;
+      img{
+        position: relative; z-index: -1;
+        display: block;
+      }
+    }
+    .post{
+      line-height: 1.5em;
+    }
+  }
+
 
   section.admin{
     display: none;
@@ -119,33 +156,27 @@
 //  MEDIA QUERIES
 //---------------------------------------------------------------------------
 
-  header.main, .content{
-    transition:  width .5s linear,
-                margin .5s linear;
-  }
-
-
-.test{
-  position: absolute;
-  .box{
-    float: left; 
-    background: rgba(0,0,0,.2);
-    .text{ 
-      text-align: center; 
-      height: 900px; 
-      margin-right: $gutter; 
-      background: rgba(255,255,0,.1); 
-      color: whitesmoke; 
-      font-weight: 100;
-      font-size: .75em;
-      width: $column; }
-    }
-  @for $i from 1 through 26 {
-    #div#{$i} { 
-      display: none;
+  .test{
+    position: fixed;
+    .box{
+      float: left; 
+      background: rgba(255,255,255,.05);
+      .text{ 
+        text-align: center; 
+        height: ($column + $gutter)*40 / $em; 
+        margin-right: $gutter; 
+        background: rgba(255,255,0,.05); 
+        color: rgba(255,255,255,.25); 
+        font-weight: 400;
+        font-size: .75em;
+        width: $column; }
+      }
+    @for $i from 1 through 26 {
+      #div#{$i} { 
+        display: none;
+      }
     }
   }
-}
 
 
 
@@ -207,17 +238,15 @@
       }
     }
 
-
-
   /* FULL PAGE 13" MBP */
     @media screen and (min-width: 80em){
       .container{
         width: $cols18;
         header.main{ width: $cols4;}
-        .content{ width: $cols14; }
+        .content{ width: $cols14; margin-left: $cols4 + $gutter / $em; }
       }
       .test{
-        @for $i from 1 through 17 {
+        @for $i from 1 through 18 {
           #div#{$i} { 
             display: block;
           }
@@ -228,11 +257,11 @@
 
 
 
-
-
-
-
-
+    @media screen and (max-width: 36.5em){}
+    @media screen and (max-width: 56em){    .test #div8{ width: $column; }}
+    @media screen and (max-width: 63em){    .test #div12{ width: $column; }}
+    @media screen and (max-width: 79em){    .test #div14{ width: $column; }}
+    @media screen and (max-width: 920em){   .test #div18{ width: $column; }}
 
 
 
