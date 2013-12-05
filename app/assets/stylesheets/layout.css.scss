@@ -81,7 +81,14 @@
           }
         }
         .main{ }
-        .admin{ }
+        &.admin{
+          border:   2px $pink-dark dashed;
+          border-left: none;
+          .logout{
+            border-top:   2px $pink-light dashed;
+            color: red;
+          }
+        }
       }
     }
     .content{
@@ -96,13 +103,12 @@
     h1{
       font-size: 3em; 
       line-height: 1.5em;
-      text-shadow: -2px -2px 0 $pink-light;
     }
     .posted{
       line-height: 4.5;
       position: absolute;
       top: 0;
-      right: ($column + $gutter) / $em;
+      right: 0;
     }
     .blogimg{
       vertical-align: middle;
@@ -161,9 +167,6 @@
       }
     }
   }
-  .images li ,.images a, .images a img{
-    @include size(336px);
-  }
 //---------------------------------------------------------------------------------------------
 //  TYPOGRAPHY
 
@@ -187,7 +190,6 @@
 //  MEDIA QUERIES
 
   .test{
-    display: none;
     position: fixed;
     .box{
       float: left; 
@@ -230,7 +232,7 @@
       .container{
         width: $cols8;
         header.main{ width: $cols2; }
-        .content{ width: $cols7; margin-left: $cols2 + $gutter / $em; }
+        .content{ width: $cols6; margin-left: $cols2 + $gutter / $em; }
       }
       .blogimg, .blogimg img{ @include size(408px auto); }
       .test{
@@ -247,7 +249,7 @@
       .container{
         width: $cols12;
         header.main{ width: $cols3; }
-        .content{ width: $cols10; margin-left: $cols3 + $gutter / $em;  }
+        .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
       }
       .blogimg, .blogimg img{ @include size(624px auto); }
       .test{
@@ -264,7 +266,7 @@
       .container{
         width: $cols14;
         header.main{ width: $cols4; }
-        .content{ width: $cols11; margin-left: $cols4 + $gutter / $em;}
+        .content{ width: $cols10; margin-left: $cols4 + $gutter / $em;}
       }
       .blogimg, .blogimg img{ @include size(696px auto); }
       .test{
@@ -281,7 +283,7 @@
       .container{
         width: $cols18;
         header.main{ width: $cols4;}
-        .content{ width: $cols15; margin-left: $cols4 + $gutter / $em; }
+        .content{ width: $cols14; margin-left: $cols4 + $gutter / $em; }
       }
       .blogimg, .blogimg img{ @include size(984px auto); }
       .test{

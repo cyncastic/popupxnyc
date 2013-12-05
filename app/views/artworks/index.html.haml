@@ -16,8 +16,6 @@
         %th Title
         %th Category
         %th.year Year
-        %th.medium Medium
-        %th.dimensions Dimensions
         %th
     %tbody.sorts{ data: { update_url: sort_artworks_url } }
       - @artworks.each do |artwork|
@@ -28,8 +26,6 @@
             = link_to artwork.title, artwork
           %td= artwork.category.name
           %td.year= artwork.year
-          %td.medium= artwork.medium
-          %td.dimensions= artwork.width.to_s + " x " +artwork.length.to_s
           %td.actions
             = link_to 'Show', artwork
             = link_to 'Edit', edit_artwork_path(artwork)
