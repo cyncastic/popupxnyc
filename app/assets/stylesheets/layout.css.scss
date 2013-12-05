@@ -71,6 +71,12 @@
           &:hover{
             color: $pink-light;
           }
+          &.current:after{
+            position: absolute;
+            content: '•';
+            right: 2em;
+            color: $pink-dark;
+          }
         }
         .main{ }
         .admin{ }
