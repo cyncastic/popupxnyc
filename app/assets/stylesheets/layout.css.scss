@@ -157,16 +157,26 @@
   .images{
     li{
       float: left;
+      margin-right: $gutter;
+      margin-bottom: $gutter;
+      display: block;
+      border: 1px $white solid;
+      overflow: hidden;
+      box-shadow: inset 0 0 50px 10px black;
       a{
-        display: block;
-        border: 1px $white solid;
-        text-shadow: inset 0 0 10px 10px black;
         img{
           display: block;
+          position: relative;
+          z-index: -1;
         }
       }
+      &:last-child{ margin-right: 0; }
     }
+    
   }
+  
+  .images li{ width: $cols5; }
+
 //---------------------------------------------------------------------------------------------
 //  TYPOGRAPHY
 
@@ -196,10 +206,10 @@
       background: hotpink;
       .text{ 
         text-align: center; 
-        height: ($column + $gutter)*40 / $em; 
+        height: ($column + $gutter)*.4 / $em; 
         margin-right: $gutter; 
         background: $pink_dark; 
-        color: $pink-light;
+        color: $white;
         font-weight: 600;
         font-size: .8em;
         width: $column;
@@ -235,6 +245,7 @@
         .content{ width: $cols6; margin-left: $cols2 + $gutter / $em; }
       }
       .blogimg, .blogimg img{ @include size(408px auto); }
+      .images li, .images img{ @include size($cols6 auto); }
       .test{
         @for $i from 1 through 8 {
           #div#{$i} { 
@@ -248,10 +259,11 @@
     @media screen and (min-width: 57em) {
       .container{
         width: $cols12;
-        header.main{ width: $cols3; }
-        .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
+        header.main{ width: $cols4; }
+        .content{ width: $cols8; margin-left: $cols4 + $gutter / $em;  }
       }
-      .blogimg, .blogimg img{ @include size(624px auto); }
+      .blogimg, .blogimg img{ @include size(552px auto); }
+      .images li, .images img{ @include size($cols4 auto); }
       .test{
         @for $i from 1 through 12 {
           #div#{$i} { 
@@ -269,6 +281,7 @@
         .content{ width: $cols10; margin-left: $cols4 + $gutter / $em;}
       }
       .blogimg, .blogimg img{ @include size(696px auto); }
+      .images li, .images img{ @include size($cols3 auto); }
       .test{
         @for $i from 1 through 14 {
           #div#{$i} { 
@@ -286,6 +299,7 @@
         .content{ width: $cols14; margin-left: $cols4 + $gutter / $em; }
       }
       .blogimg, .blogimg img{ @include size(984px auto); }
+      .images li, .images img{ @include size($cols3 auto); }
       .test{
         @for $i from 1 through 18 {
           #div#{$i} { 
@@ -300,7 +314,7 @@
 
     @media screen and (max-width: 36.5em){}
     @media screen and (max-width: 56em){    .test #div8{ width: $column; }}
-    @media screen and (max-width: 63em){    .test #div12{ width: $column; }}
+    @media screen and (max-width: 63.9999em){    .test #div12{ width: $column; }}
     @media screen and (max-width: 79em){    .test #div14{ width: $column; }}
     @media screen and (max-width: 920em){   .test #div18{ width: $column; }}
 
