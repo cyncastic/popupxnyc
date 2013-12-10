@@ -50,7 +50,7 @@
 //  TYPOGRAPHY
 
  body{
-    font-size: $font-size / $em;
+    font-size: 16px / $em;
     line-height: 24px / $em;
     
     font-family: 'Lato';
@@ -64,7 +64,7 @@
       text-decoration: none;
     }
   }
-
+  h1{ font-size: 1.4em;}
 //---------------------------------------------------------------------------------------------
 //  STRUCTURE
 
@@ -176,8 +176,8 @@
   .images{
     li{
       float: left;
-      margin-right: $gutter;
-      margin-bottom: $gutter;
+      margin-right: $gutter / $em;
+      margin-bottom: $gutter / $em;
       display: block;
       border: 1px $white solid;
       overflow: hidden;
@@ -235,7 +235,7 @@
         }
         .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
       }
-      .blogimg, .blogimg img{ @include size(624px auto); }
+      .blogimg, .blogimg img{ @include size($cols9 auto); }
       .images li, .images img{ @include size($cols4 auto); }
     }
 
@@ -250,7 +250,7 @@
         }
         .content{ width: $cols10; margin-left: $cols4 + $gutter / $em;}
       }
-      .blogimg, .blogimg img{ @include size(696px auto); }
+      .blogimg, .blogimg img{ @include size($cols10 auto); }
       .images li, .images img{ @include size($cols3 auto); }
     }
 
@@ -265,42 +265,6 @@
         }
         .content{ width: $cols13; margin-left: $cols5 + $gutter / $em; }
       }
-      .blogimg, .blogimg img{ @include size(912px auto); }
+      .blogimg, .blogimg img{ @include size($cols13 auto); }
       .images li, .images img{ @include size($cols3 auto); }
     }
-
-
-
-
-    @media screen and (max-width: 36.5.999em){}
-    @media screen and (max-width: 55.999em){    .test #div8{ width: $column; }}
-    @media screen and (max-width: 63.999em){    .test #div12{ width: $column; }}
-    @media screen and (max-width: 79.999em){    .test #div14{ width: $column; }}
-    @media screen and (max-width: 920em){   .test #div18{ width: $column; }}
-
-
-
-
-
-
-
-
-/*---------------------------------------------------------------------------------------------
-  An easy way to zoom your entire layout in or out (as long as it's set in ems).
-  Just change the media queries to activate them.
-  Assuming your base font-size is 16:
-  - the first one zooms out by a factor of (16-2)/16 = 0.875
-  - the second one zooms in by a factor of (16+2)/16 = 1.125  
-*/
-
-  @media screen and (max-width: 1) {
-    body {
-      font-size: ($font-size - 2) / $em;
-    }
-  }
-
-  @media screen and (max-width: 1px) {
-    body {
-      font-size: ($font-size + 2) / $em;
-    }
-  }
