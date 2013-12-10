@@ -35,48 +35,68 @@
   $cols25: (25 * ($column + $gutter) - $gutter) / $em; // 1776px
   $cols26: (26 * ($column + $gutter) - $gutter) / $em; // 1848px
 
-//---------------------------------------------------------------------------------------------
-//  STRUCTURE
-
+  // Colors
   $black: #171717;
   $white: #f5f5f5;
   $pink-light: #f172ae;
   $pink-dark: #ec0075;
 
+  // Header Images
+  $king-110: 'https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead-110.png';
+  $king-147: 'https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead-147.png';
+  $king-220: 'https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead-220.png';
+
+//---------------------------------------------------------------------------------------------
+//  TYPOGRAPHY
+
+ body{
+    font-size: $font-size / $em;
+    line-height: 24px / $em;
+    
+    font-family: 'Lato';
+    font-weight: 200;
+    text-transform: uppercase;
+    
+    color: $white;
+    background: $black;
+    a{ 
+      color: $pink-dark;
+      text-decoration: none;
+    }
+  }
+
+//---------------------------------------------------------------------------------------------
+//  STRUCTURE
+
   .container {
     @include clearfix;  
     position: relative;
     margin: 0 auto;
+    padding-top:  $gutter / $em;
     header.main, .content{ float: left; position: relative; z-index: 999; }
     header.main{
       position: fixed;
-      padding-top: 195px /$em;
-      background: url('https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead.png') no-repeat top right;
       text-align: right;
       h1{
-        font-size: 24px / $em;
-        font-weight: 200;
-        word-spacing: 3px / $em;
+        word-spacing: 2px / $em;
         margin-bottom: 10px / $em;
-        padding-right: 1.4em;
+        //font-size: 24px /$em;
       }
       nav{
-      padding-right: $column / $em;
-        font-family: 'Oswald', sans-serif;
+        padding-right: 1em;
+        //font-family: 'Oswald', sans-serif;
         letter-spacing: 1px;
         ul li a{
           line-height: 2.25em;
           text-decoration: none;
           color: $white;
-          &:hover{
-            color: $pink-light;
-          }
-
+          transition: color .3s ease;
+          &:hover{ color: $pink-light; }
           &.current{ color: $pink-dark; }
           &.current:after{
             position: absolute;
             content: '•';
-            right: 2em;
+            right: 0em;
             color: $pink-light;
           }
         }
@@ -101,28 +121,27 @@
     position: relative;
     header{ position: relative;}
     h1{
-      font-size: 3em; 
+      //font-size: 3em; 
       line-height: 1.5em;
     }
     .posted{
-      line-height: 4.5;
+      //line-height: 4.5;
       position: absolute;
       top: 0;
       right: 0;
     }
     .blogimg{
-      vertical-align: middle;
-      display: inline-block;
-      font-size: 0;
-      height: auto;
-      border: 2px $white solid;
-      box-shadow: inset 0 0 40px 2px black;
       display: block;
       position: relative;
-      margin-bottom: 32.5em;
+      height: auto;
+      border: 1px $white solid;
+      box-shadow: inset 0 0 40px 2px black;
       img{
-        position: relative; z-index: -1;
         display: block;
+        position: relative; 
+        right: 1px;
+        z-index: -1;
+
       }
     }
     .post{
@@ -135,7 +154,7 @@
     width: $cols10;
     background: rgba(0,0,0,.66);
     h1{
-      font-size: 2em;
+      //font-size: 2em;
       line-height: 3em;
     }
     form{
@@ -170,152 +189,93 @@
           z-index: -1;
         }
       }
-      &:last-child{ margin-right: 0; }
     }
-    
   }
   
-  .images li{ width: $cols5; }
 
-//---------------------------------------------------------------------------------------------
-//  TYPOGRAPHY
-
- body{
-    font-size: $font-size / $em;
-    line-height: 24px / $em;
-    
-    font-family: 'Lato';
-    font-weight: 400;
-    text-transform: uppercase;
-    
-    color: $white;
-    background: $black;
-    a{ 
-      color: $pink-dark;
-      text-decoration: none;
-    }
-  }
 
 //---------------------------------------------------------------------------------------------
 //  MEDIA QUERIES
 
-  .test{
-    position: fixed;
-    .box{
-      float: left; 
-      background: hotpink;
-      .text{ 
-        text-align: center; 
-        height: ($column + $gutter)*.4 / $em; 
-        margin-right: $gutter; 
-        background: $pink_dark; 
-        color: $white;
-        font-weight: 600;
-        font-size: .8em;
-        width: $column;
-        position: relative;
-        z-index: 999999;
-      }
-    }
-    @for $i from 1 through 26 {
-      #div#{$i} { 
-        display: none;
-      }
-    }
-  }
+  // .test{
+  //   position: fixed;
+  //   .box{
+  //     float: left; 
+  //     background: hotpink;
+  //     .text{ 
+  //       text-align: center; 
+  //       height: ($column + $gutter)*.4 / $em; 
+  //       margin-right: $gutter; 
+  //       background: $pink_dark; 
+  //       color: $white;
+  //       font-weight: 600;
+  //       font-size: .8em;
+  //       width: $column;
+  //       position: relative;
+  //       z-index: 999999;
+  //     }
+  //   }
+  //   @for $i from 1 through 26 {
+  //     #div#{$i} { 
+  //       display: none;
+  //     }
+  //   }
+  // }
 
 
-
-  /* Mobile layout: 480-767 px. Zoomed in above 480 px */
-    @media screen and (min-width: 1em){
-      .container{
-        width: 100%;
-        header.main{ width: 100%; }
-        .content{ width: 100%;}
-      }
-      .blogimg, .blogimg img{ @include size(100% auto); }
-
-    }
-
-  /* Tablet layout: 600-911 px. Zoomed in above 600 px */
-    @media screen and (min-width: 37.5em){
-      .container{
-        width: $cols8;
-        header.main{ width: $cols2; }
-        .content{ width: $cols6; margin-left: $cols2 + $gutter / $em; }
-      }
-      .blogimg, .blogimg img{ @include size(408px auto); }
-      .images li, .images img{ @include size($cols6 auto); }
-      .test{
-        @for $i from 1 through 8 {
-          #div#{$i} { 
-            display: block;
-          }
-        }
-      }
-    }
 
   /* Laptop layout: 912-infinity px */
-    @media screen and (min-width: 57em) {
+    @media screen and (min-width: 1em) {
       .container{
-        width: $cols12;
-        header.main{ width: $cols4; }
-        .content{ width: $cols8; margin-left: $cols4 + $gutter / $em;  }
-      }
-      .blogimg, .blogimg img{ @include size(552px auto); }
-      .images li, .images img{ @include size($cols4 auto); }
-      .test{
-        @for $i from 1 through 12 {
-          #div#{$i} { 
-            display: block;
-          }
+        width: $cols12; 
+        header.main{
+          width: $cols3;
+          padding-top: 155px /$em;
+          background: url($king-147) no-repeat top right;
         }
+        .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
       }
+      .blogimg, .blogimg img{ @include size(624px auto); }
+      .images li, .images img{ @include size($cols4 auto); }
     }
 
   /* Full page zoom above 1024 px. Still desktop layout. */
     @media screen and (min-width: 64em){
       .container{
         width: $cols14;
-        header.main{ width: $cols4; }
+        header.main{ 
+          width: $cols4;
+          padding-top: 195px /$em;
+          background: url($king-220) no-repeat top right;
+        }
         .content{ width: $cols10; margin-left: $cols4 + $gutter / $em;}
       }
       .blogimg, .blogimg img{ @include size(696px auto); }
       .images li, .images img{ @include size($cols3 auto); }
-      .test{
-        @for $i from 1 through 14 {
-          #div#{$i} { 
-            display: block;
-          }
-        }
-      }
     }
 
   /* FULL PAGE 13" MBP */
     @media screen and (min-width: 80em){
       .container{
         width: $cols18;
-        header.main{ width: $cols4;}
-        .content{ width: $cols14; margin-left: $cols4 + $gutter / $em; }
-      }
-      .blogimg, .blogimg img{ @include size(984px auto); }
-      .images li, .images img{ @include size($cols3 auto); }
-      .test{
-        @for $i from 1 through 18 {
-          #div#{$i} { 
-            display: block;
-          }
+        header.main{
+          width: $cols5;
+          padding-top: 195px /$em;
+          background: url($king-220) no-repeat top right;
         }
+        .content{ width: $cols13; margin-left: $cols5 + $gutter / $em; }
       }
+      .blogimg, .blogimg img{ @include size(912px auto); }
+      .images li, .images img{ @include size($cols3 auto); }
     }
 
 
 
 
-    @media screen and (max-width: 36.5em){}
-    @media screen and (max-width: 56em){    .test #div8{ width: $column; }}
-    @media screen and (max-width: 63.9999em){    .test #div12{ width: $column; }}
-    @media screen and (max-width: 79em){    .test #div14{ width: $column; }}
+    @media screen and (max-width: 36.5.999em){}
+    @media screen and (max-width: 55.999em){    .test #div8{ width: $column; }}
+    @media screen and (max-width: 63.999em){    .test #div12{ width: $column; }}
+    @media screen and (max-width: 79.999em){    .test #div14{ width: $column; }}
     @media screen and (max-width: 920em){   .test #div18{ width: $column; }}
 
 

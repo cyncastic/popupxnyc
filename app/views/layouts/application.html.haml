@@ -2,6 +2,7 @@
 %html
   %head
     %title POP UP X NYC
+    %meta{ name: 'viewport', content: 'width=device-width' }
     %link{ href: 'http://fonts.googleapis.com/css?family=Lato:100,400|Oswald', rel: 'stylesheet', type: 'text/css' }
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -11,11 +12,6 @@
 
     .container
 
-      .test
-        - (1..18).each do |t|
-          .box{ id: 'div' + t.to_s }
-            .text #{ 'col' + t.to_s }
-      
       %header.main
         %h1 POP UP X NYC
         %nav.main
