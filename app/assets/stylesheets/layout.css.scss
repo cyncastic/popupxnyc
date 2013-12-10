@@ -36,7 +36,7 @@
   $cols26: (26 * ($column + $gutter) - $gutter) / $em; // 1848px
 
   // Colors
-  $black: #171717;
+  $black: #0a0c11;
   $white: #f5f5f5;
   $pink-light: #f172ae;
   $pink-dark: #ec0075;
@@ -49,7 +49,7 @@
 //---------------------------------------------------------------------------------------------
 //  TYPOGRAPHY
 
- body{
+  body{
     font-size: 16px / $em;
     line-height: 24px / $em;
     
@@ -60,11 +60,21 @@
     color: $white;
     background: $black;
     a{ 
-      color: $pink-dark;
+      color: $white;
       text-decoration: none;
     }
   }
-  h1{ font-size: 1.4em;}
+  h1{ 
+    font-size: 2em;
+    word-spacing: 2px / $em;
+    line-height: 1.5em;
+    font-weight: 400;
+    text-shadow: -2px 3px 0 black, 2px -3px 0 black;
+  }
+  nav ul li a{
+    font-size: 1.5em;
+    line-height: 2em;
+  }
 //---------------------------------------------------------------------------------------------
 //  STRUCTURE
 
@@ -77,19 +87,10 @@
     header.main{
       position: fixed;
       text-align: right;
-      h1{
-        word-spacing: 2px / $em;
-        margin-bottom: 10px / $em;
-        //font-size: 24px /$em;
-      }
       nav{
         padding-right: 1em;
-        //font-family: 'Oswald', sans-serif;
-        letter-spacing: 1px;
+        font-family: 'Oswald', sans-serif;
         ul li a{
-          line-height: 2.25em;
-          text-decoration: none;
-          color: $white;
           transition: color .3s ease;
           &:hover{ color: $pink-light; }
           &.current{ color: $pink-dark; }
@@ -119,15 +120,13 @@
   // MAKE THIS A FILE?
   .posts{
     position: relative;
+    position: -99;
+    //background: $pink-dark;
     header{ position: relative;}
-    h1{
-      //font-size: 3em; 
-      line-height: 1.5em;
-    }
     .posted{
-      //line-height: 4.5;
+      font-family: 'Oswald', sans-serif;
       position: absolute;
-      top: 0;
+      top: 1.25em;
       right: 0;
     }
     .blogimg{
@@ -145,7 +144,7 @@
       }
     }
     .post{
-      line-height: 1.5em;
+      line-height: 3em;
     }
   }
 
@@ -232,6 +231,9 @@
           width: $cols3;
           padding-top: 155px /$em;
           background: url($king-147) no-repeat top right;
+          h1{
+            font-size: 1.4em;
+          }
         }
         .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
       }
@@ -244,13 +246,13 @@
       .container{
         width: $cols14;
         header.main{ 
-          width: $cols4;
-          padding-top: 195px /$em;
-          background: url($king-220) no-repeat top right;
+          width: $cols3;
+          padding-top: 135px /$em;
+          background: url($king-147) no-repeat top right;
         }
-        .content{ width: $cols10; margin-left: $cols4 + $gutter / $em;}
+        .content{ width: $cols11; margin-left: $cols3 + $gutter / $em;}
       }
-      .blogimg, .blogimg img{ @include size($cols10 auto); }
+      .blogimg, .blogimg img{ @include size($cols11 auto); }
       .images li, .images img{ @include size($cols3 auto); }
     }
 
@@ -259,12 +261,13 @@
       .container{
         width: $cols18;
         header.main{
-          width: $cols5;
+          width: $cols4;
           padding-top: 195px /$em;
           background: url($king-220) no-repeat top right;
         }
-        .content{ width: $cols13; margin-left: $cols5 + $gutter / $em; }
+        .content{ width: $cols12; margin-left: $cols4 + $gutter / $em; }
       }
-      .blogimg, .blogimg img{ @include size($cols13 auto); }
-      .images li, .images img{ @include size($cols3 auto); }
+      .blogimg, .blogimg img{ @include size($cols12 auto); }
+      .images li, .images img{ @include size($cols6 auto); 
+        &:nth-child(2n+2){ margin-right: 0}}
     }
