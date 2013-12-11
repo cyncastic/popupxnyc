@@ -36,7 +36,7 @@
   $cols26: (26 * ($column + $gutter) - $gutter) / $em; // 1848px
 
   // Colors
-  $black: #0a0c11;
+  $black: #110c0f;
   $white: #f5f5f5;
   $pink-light: #f172ae;
   $pink-dark: #ec0075;
@@ -65,7 +65,7 @@
     }
   }
   h1{ 
-    font-size: 2em;
+    font-size: 2.5em;
     word-spacing: 2px / $em;
     line-height: 1.5em;
     font-weight: 400;
@@ -82,7 +82,7 @@
     @include clearfix;  
     position: relative;
     margin: 0 auto;
-    padding-top:  $gutter / $em;
+    padding:  ($gutter / $em) 0 ($gutter / $em);
     header.main, .content{ float: left; position: relative; z-index: 999; }
     header.main{
       position: fixed;
@@ -146,22 +146,26 @@
     .post{
       line-height: 3em;
     }
+    .load-more-posts{
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      color: $pink-light;
+      text-align: center;
+    }
   }
 
   // MAKE THIS A FILE?
   section.admin{
     width: $cols10;
     background: rgba(0,0,0,.66);
-    h1{
-      //font-size: 2em;
-      line-height: 3em;
+    h1{ 
     }
     form{
       label{
         display: inline-block;
         width: $cols2;
         text-align: right;
-        margin-right: $gutter;
+        margin-right: $gutter / $em;
         line-height: 1.5em;
       }
       .actions{
@@ -196,44 +200,15 @@
 //---------------------------------------------------------------------------------------------
 //  MEDIA QUERIES
 
-  // .test{
-  //   position: fixed;
-  //   .box{
-  //     float: left; 
-  //     background: hotpink;
-  //     .text{ 
-  //       text-align: center; 
-  //       height: ($column + $gutter)*.4 / $em; 
-  //       margin-right: $gutter; 
-  //       background: $pink_dark; 
-  //       color: $white;
-  //       font-weight: 600;
-  //       font-size: .8em;
-  //       width: $column;
-  //       position: relative;
-  //       z-index: 999999;
-  //     }
-  //   }
-  //   @for $i from 1 through 26 {
-  //     #div#{$i} { 
-  //       display: none;
-  //     }
-  //   }
-  // }
-
-
-
   /* Laptop layout: 912-infinity px */
     @media screen and (min-width: 1em) {
       .container{
-        width: $cols12; 
+        width: $cols12;
+        h1{ font-size: 1.4em; }
         header.main{
           width: $cols3;
           padding-top: 155px /$em;
           background: url($king-147) no-repeat top right;
-          h1{
-            font-size: 1.4em;
-          }
         }
         .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
       }
@@ -260,6 +235,7 @@
     @media screen and (min-width: 80em){
       .container{
         width: $cols18;
+        h1{ font-size: 2em; }
         header.main{
           width: $cols4;
           padding-top: 195px /$em;
