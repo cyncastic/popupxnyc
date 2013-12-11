@@ -46,6 +46,9 @@
   $king-147: 'https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead-147.png';
   $king-220: 'https://s3-us-west-2.amazonaws.com/popupxnyc/static/kinghead-220.png';
 
+  // Grid Background;
+  $grid-bg: 'https://s3-us-west-2.amazonaws.com/popupxnyc/static/grid-bg.gif';
+
 //---------------------------------------------------------------------------------------------
 //  TYPOGRAPHY
 
@@ -69,7 +72,8 @@
     word-spacing: 2px / $em;
     line-height: 1.5em;
     font-weight: 400;
-    text-shadow: -2px 3px 0 black, 2px -3px 0 black;
+    text-shadow: -2px 3px 0 black, 2px -3px 0 black,
+                 -2px -3px 0 black, 2px 3px 0 black;
   }
   nav ul li a{
     font-size: 1.5em;
@@ -79,6 +83,7 @@
 //  STRUCTURE
 
   .container {
+    background: url($grid-bg);
     @include clearfix;  
     position: relative;
     margin: 0 auto;
@@ -120,13 +125,11 @@
   // MAKE THIS A FILE?
   .posts{
     position: relative;
-    position: -99;
-    //background: $pink-dark;
     header{ position: relative;}
     .posted{
       font-family: 'Oswald', sans-serif;
       position: absolute;
-      top: 1.25em;
+      bottom: 0;
       right: 0;
     }
     .blogimg{
@@ -140,7 +143,6 @@
         position: relative; 
         right: 1px;
         z-index: -1;
-
       }
     }
     .post{
@@ -200,39 +202,77 @@
 //---------------------------------------------------------------------------------------------
 //  MEDIA QUERIES
 
-  /* Laptop layout: 912-infinity px */
-    @media screen and (min-width: 1em) {
+  // 8 Cols
+    @media screen and (min-width: $cols1) {
+      .container::before{ content: '$cols8'; }
+      .container{
+        width: $cols4;
+        h1{ font-size: 1em; }
+        header.main{
+          width: $cols2;
+          padding-top: 100px /$em;
+          background: url($king-110) no-repeat top right;
+          ul li a{ font-size: .8em; }
+        }
+        .content{ width: $cols2; margin-left: $cols2 + $gutter / $em;  }
+      }
+      .blogimg, .blogimg img{ @include size($cols2 auto); }
+      .images li, .images img{ @include size($cols2 auto); }
+    }
+
+  // 8 Cols
+    @media screen and (min-width: $cols8) {
+      .container::before{ content: '$cols8'; }
+      .container{
+        width: $cols8;
+        h1{ font-size: 1em; }
+        .content{ width: $cols6; margin-left: $cols2 + $gutter / $em;  }
+      }
+      .blogimg, .blogimg img{ @include size($cols6 auto); }
+      .images li, .images img{ @include size($cols3 auto); }
+      .images li:nth-child(2n+2){ margin-right: 0; }
+    }
+
+  // Laptop Layout: 912px
+    @media screen and (min-width: $cols12) {
+      .container::before{ content: '$cols12'; }
       .container{
         width: $cols12;
         h1{ font-size: 1.4em; }
         header.main{
           width: $cols3;
-          padding-top: 155px /$em;
+          padding-top: 130px /$em;
           background: url($king-147) no-repeat top right;
+          ul li a{ font-size: 1em; }
         }
         .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
       }
       .blogimg, .blogimg img{ @include size($cols9 auto); }
-      .images li, .images img{ @include size($cols4 auto); }
-    }
-
-  /* Full page zoom above 1024 px. Still desktop layout. */
-    @media screen and (min-width: 64em){
-      .container{
-        width: $cols14;
-        header.main{ 
-          width: $cols3;
-          padding-top: 135px /$em;
-          background: url($king-147) no-repeat top right;
-        }
-        .content{ width: $cols11; margin-left: $cols3 + $gutter / $em;}
-      }
-      .blogimg, .blogimg img{ @include size($cols11 auto); }
       .images li, .images img{ @include size($cols3 auto); }
+      .images li:nth-child(2n+2){ margin-right: $gutter; }
+      .images li:nth-child(3n+3){ margin-right: 0; }
     }
 
-  /* FULL PAGE 13" MBP */
-    @media screen and (min-width: 80em){
+  // Full page zoom above 1024 px. Still desktop layout. 
+    @media screen and (min-width: $cols15){
+      .container::before{ content: '$cols15'; }
+      .container{
+        width: $cols15;
+        header.main{
+          width: $cols3;
+          ul li a{ font-size: 1.2em; }
+        }
+        .content{ width: $cols12; margin-left: $cols3 + $gutter / $em; }
+      }
+      .blogimg, .blogimg img{ @include size($cols12 auto); }
+      .images li, .images img{ @include size($cols3 auto); }
+      .images li:nth-child(3n+3){ margin-right: $gutter; }
+      .images li:nth-child(4n+4){ margin-right: 0; }
+    }
+
+  // FULL PAGE 13" MBP */
+    @media screen and (min-width: $cols18){
+      .container::before{ content: '$cols18'; }
       .container{
         width: $cols18;
         h1{ font-size: 2em; }
@@ -240,10 +280,11 @@
           width: $cols4;
           padding-top: 195px /$em;
           background: url($king-220) no-repeat top right;
+          ul li a{ font-size: 1.5em; }
         }
-        .content{ width: $cols12; margin-left: $cols4 + $gutter / $em; }
+        .content{ width: $cols14; margin-left: $cols4 + $gutter / $em; }
       }
-      .blogimg, .blogimg img{ @include size($cols12 auto); }
-      .images li, .images img{ @include size($cols6 auto); 
-        &:nth-child(2n+2){ margin-right: 0}}
+      .blogimg, .blogimg img{ @include size($cols14 auto); }
+      .images li, .images img{ @include size($cols7 auto); }
+      .images li:nth-child(2n+2){ margin-right: 0px; }
     }
