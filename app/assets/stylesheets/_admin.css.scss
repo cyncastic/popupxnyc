@@ -1,0 +1,41 @@
+
+
+section.admin{
+  background: rgba(0,0,0,.66);
+  h1{  }
+  form{
+    label{
+      display: inline-block;
+      width: $cols2;
+      text-align: right;
+      margin-right: $gutter / $em;
+      line-height: 1.5em;
+    }
+  }
+  table{
+    width: 100%;
+    border: 1px $white solid;
+    th{
+      background: $white;
+      color: $black;
+      font-weight: 600;
+    }
+    tr{
+      text-align: left;
+      background: rgba(255,255,255,.125);
+      border-bottom: 1px $black dotted;
+      img{
+        vertical-align: middle;
+      }
+    }
+  }
+  .actions{
+    text-align: right;
+    a{
+      color: $pink-dark;
+    }
+  }
+  form{
+    border: 1px $white solid;
+  }
+}
