@@ -9,8 +9,7 @@
 
   .field
     = f.label :category_id
-    = f.collection_select(:category_id, Category.all, :id, :name, { selected: params[:category_id] })
-
+    = f.collection_select(:category_id, Category.all, :id, :name, { selected: @artwork.category_id })
   .field
     = f.label :sold
     = f.check_box :sold
