@@ -75,6 +75,9 @@
     text-shadow: -2px 3px 0 black, 2px -3px 0 black,
                  -2px -3px 0 black, 2px 3px 0 black;
   }
+  h2{
+    font-size: 1.5em;
+  }
   nav ul li a{
     font-size: 1.5em;
     line-height: 2em;
@@ -83,7 +86,7 @@
 //  STRUCTURE
 
   .container {
-    background: url($grid-bg);
+    //background: url($grid-bg);
     @include clearfix;  
     position: relative;
     margin: 0 auto;
@@ -156,28 +159,6 @@
     }
   }
 
-  // MAKE THIS A FILE?
-  section.admin{
-    width: $cols10;
-    background: rgba(0,0,0,.66);
-    h1{ 
-    }
-    form{
-      label{
-        display: inline-block;
-        width: $cols2;
-        text-align: right;
-        margin-right: $gutter / $em;
-        line-height: 1.5em;
-      }
-      .actions{
-        width: $cols6;
-        background: pink;
-        text-align: right;
-      }
-    }
-  }
-
   .images{
     li{
       float: left;
@@ -198,13 +179,14 @@
   }
   
 
+ @import 'admin';
 
 //---------------------------------------------------------------------------------------------
 //  MEDIA QUERIES
 
-  // 8 Cols
+  // Min
     @media screen and (min-width: $cols1) {
-      .container::before{ content: '$cols8'; }
+      .container::before{ content: 'min-width'; }
       .container{
         width: $cols4;
         h1{ font-size: 1em; }
@@ -233,7 +215,7 @@
       .images li:nth-child(2n+2){ margin-right: 0; }
     }
 
-  // Laptop Layout: 912px
+  // 12 Cols
     @media screen and (min-width: $cols12) {
       .container::before{ content: '$cols12'; }
       .container{
@@ -253,7 +235,7 @@
       .images li:nth-child(3n+3){ margin-right: 0; }
     }
 
-  // Full page zoom above 1024 px. Still desktop layout. 
+  // 14 Cols
     @media screen and (min-width: $cols15){
       .container::before{ content: '$cols15'; }
       .container{
@@ -270,7 +252,7 @@
       .images li:nth-child(4n+4){ margin-right: 0; }
     }
 
-  // FULL PAGE 13" MBP */
+  // 18 Cols
     @media screen and (min-width: $cols18){
       .container::before{ content: '$cols18'; }
       .container{
@@ -287,4 +269,23 @@
       .blogimg, .blogimg img{ @include size($cols14 auto); }
       .images li, .images img{ @include size($cols7 auto); }
       .images li:nth-child(2n+2){ margin-right: 0px; }
+    }
+
+  // 18 Cols
+    @media screen and (min-width: $cols22){
+      .container::before{ content: '$cols22'; }
+      .container{
+        width: $cols22;
+        header.main{
+          width: $cols4;
+          padding-top: 195px /$em;
+          background: url($king-220) no-repeat top right;
+          ul li a{ font-size: 1.5em; }
+        }
+        .content{ width: $cols18; margin-left: $cols4 + $gutter / $em; }
+      }
+      .blogimg, .blogimg img{ @include size($cols18 auto); }
+      .images li, .images img{ @include size($cols6 auto); }
+      .images li:nth-child(2n+2){ margin-right: $gutter; }
+      .images li:nth-child(3n+3){ margin-right: 0px; }
     }
