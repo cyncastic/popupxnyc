@@ -3,6 +3,8 @@
 
   .crop-holder
     = image_tag @artwork.image_url(:large), id: "cropbox"
+    
+    %h2 Preview
     #crop-preview
       = image_tag @artwork.image_url(:large), :id => "preview"
 

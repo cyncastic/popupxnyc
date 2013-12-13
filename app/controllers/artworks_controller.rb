@@ -36,7 +36,7 @@ class ArtworksController < ApplicationController
 
   def update
     if @artwork.update(artwork_params)
-      redirect_to @artwork, notice: 'Artwork successfully updated.'
+      redirect_to artworks_path, notice: 'Artwork successfully updated.'
     else
       render action: 'edit'
     end
@@ -44,7 +44,7 @@ class ArtworksController < ApplicationController
 
   def destroy
     @artwork.destroy
-    redirect_to artworks_url, notice: 'Artwork successfully destroyed.'
+    redirect_to artworks_path, notice: 'Artwork successfully destroyed.'
   end
 
   def sort
