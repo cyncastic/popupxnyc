@@ -86,7 +86,6 @@
 //  STRUCTURE
 
   .container {
-    //background: url($grid-bg);
     @include clearfix;  
     position: relative;
     margin: 0 auto;
@@ -111,11 +110,10 @@
         }
         .main{ }
         &.admin{
-          border:   2px $pink-dark dashed;
+          border-top:   6px $pink-dark dotted;
           border-left: none;
           .logout{
-            border-top:   2px $pink-light dashed;
-            color: red;
+            color: $pink-dark;
           }
         }
       }
@@ -186,7 +184,7 @@
 
   // Min
     @media screen and (min-width: $cols1) {
-      .container::before{ content: 'min-width'; }
+      //.container::before{ content: 'min-width'; }
       .container{
         width: $cols4;
         h1{ font-size: 1em; }
@@ -204,7 +202,7 @@
 
   // 8 Cols
     @media screen and (min-width: $cols8) {
-      .container::before{ content: '$cols8'; }
+      //.container::before{ content: '$cols8'; }
       .container{
         width: $cols8;
         h1{ font-size: 1em; }
@@ -217,7 +215,7 @@
 
   // 12 Cols
     @media screen and (min-width: $cols12) {
-      .container::before{ content: '$cols12'; }
+      //.container::before{ content: '$cols12'; }
       .container{
         width: $cols12;
         h1{ font-size: 1.4em; }
@@ -237,7 +235,7 @@
 
   // 14 Cols
     @media screen and (min-width: $cols15){
-      .container::before{ content: '$cols15'; }
+      //.container::before{ content: '$cols15'; }
       .container{
         width: $cols15;
         header.main{
@@ -254,7 +252,7 @@
 
   // 18 Cols
     @media screen and (min-width: $cols18){
-      .container::before{ content: '$cols18'; }
+      //.container::before{ content: '$cols18'; }
       .container{
         width: $cols18;
         h1{ font-size: 2em; }
@@ -273,7 +271,7 @@
 
   // 18 Cols
     @media screen and (min-width: $cols22){
-      .container::before{ content: '$cols22'; }
+      //.container::before{ content: '$cols22'; }
       .container{
         width: $cols22;
         header.main{
