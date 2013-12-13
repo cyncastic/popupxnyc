@@ -39,3 +39,16 @@ section.admin{
     border: 1px $white solid;
   }
 }
+.error_explanation{
+    padding-left: $gutter;
+    border-bottom: 2px black solid;
+    background: #333;
+  h2{     font-size: 18px / $em; }
+  ul li { font-size: 12px/$em;}
+}
+.field_with_errors{
+  display: inline;
+  label{
+    color: $pink-dark;
+  }
+}
