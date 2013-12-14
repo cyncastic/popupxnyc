@@ -22,7 +22,6 @@
         - if session[:user_id]
           %nav.admin
             %ul
-              %li= link_to 'Admin', admin_path, class: cp(admin_path)
               %li= link_to 'New Blog', new_blog_path, class: cp(new_blog_path)
               %li= link_to 'New Artwork', new_artwork_path, class: cp(new_artwork_path)
               %li= link_to 'All Artworks', artworks_path, class: cp(artworks_path)
