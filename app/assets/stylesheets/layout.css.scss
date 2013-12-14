@@ -110,10 +110,10 @@
         }
         .main{ }
         &.admin{
-          border-top:   6px $pink-dark dotted;
+          border-top:   6px $pink-light dotted;
           border-left: none;
           .logout{
-            color: $pink-dark;
+            color: $pink-light;
           }
         }
       }

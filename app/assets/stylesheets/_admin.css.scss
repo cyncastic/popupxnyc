@@ -1,5 +1,9 @@
 section.admin{
   background: rgba(0,0,0,.66);
+  #categoryselectlist{
+    li{ display: inline-block; margin-right: 1em; line-height: 2em; }
+  }
+  .current{ color: $pink-dark; }
   form{
     label{
       display: inline-block;
@@ -30,6 +34,7 @@ section.admin{
     text-align: right;
     a{
       color: $pink-dark;
+      margin-right: 1em;
     }
   }
   form{
