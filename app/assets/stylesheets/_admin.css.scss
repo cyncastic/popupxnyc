@@ -1,3 +1,10 @@
+nav.admin{
+  border-top:   6px $pink-light dotted;
+  .logout{
+    color: white;
+  }
+}
+
 section.admin{
   background: rgba(0,0,0,.66);
   #categoryselectlist{

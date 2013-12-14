@@ -72,8 +72,8 @@
     word-spacing: 2px / $em;
     line-height: 1.5em;
     font-weight: 400;
-    text-shadow: -2px 3px 0 black, 2px -3px 0 black,
-                 -2px -3px 0 black, 2px 3px 0 black;
+    //text-shadow: -2px 3px 0 black, 2px -3px 0 black,
+    //             -2px -3px 0 black, 2px 3px 0 black;
   }
   h2{
     font-size: 1.5em;
@@ -84,19 +84,22 @@
   }
 //---------------------------------------------------------------------------------------------
 //  STRUCTURE
-
+  *, *:before, *:after { @include box-sizing(border-box); }
+  
   .container {
+    //background: url($grid-bg);
     @include clearfix;  
     position: relative;
-    margin: 0 auto;
-    padding:  ($gutter / $em) 0 ($gutter / $em);
-    header.main, .content{ float: left; position: relative; z-index: 999; }
+    margin:  ($gutter / $em) auto ($gutter / $em);
+    header.main, .content{ @include inline-block; vertical-align: top;}
     header.main{
-      position: fixed;
+      background: red;
+      margin-right: ($gutter - 3px) / $em;
       text-align: right;
       nav{
-        padding-right: 1em;
+        position: relative;
         font-family: 'Oswald', sans-serif;
+        padding-right: 1em;
         ul li a{
           transition: color .3s ease;
           &:hover{ color: $pink-light; }
@@ -105,14 +108,6 @@
             position: absolute;
             content: '•';
             right: 0em;
-            color: $pink-light;
-          }
-        }
-        .main{ }
-        &.admin{
-          border-top:   6px $pink-light dotted;
-          border-left: none;
-          .logout{
             color: $pink-light;
           }
         }
@@ -194,7 +189,7 @@
           background: url($king-110) no-repeat top right;
           ul li a{ font-size: .8em; }
         }
-        .content{ width: $cols2; margin-left: $cols2 + $gutter / $em;  }
+        .content{ width: $cols2; }
       }
       .blogimg, .blogimg img{ @include size($cols2 auto); }
       .images li, .images img{ @include size($cols2 auto); }
@@ -206,7 +201,7 @@
       .container{
         width: $cols8;
         h1{ font-size: 1em; }
-        .content{ width: $cols6; margin-left: $cols2 + $gutter / $em;  }
+        .content{ width: $cols6; }
       }
       .blogimg, .blogimg img{ @include size($cols6 auto); }
       .images li, .images img{ @include size($cols3 auto); }
@@ -225,7 +220,7 @@
           background: url($king-147) no-repeat top right;
           ul li a{ font-size: 1em; }
         }
-        .content{ width: $cols9; margin-left: $cols3 + $gutter / $em;  }
+        .content{ width: $cols9; }
       }
       .blogimg, .blogimg img{ @include size($cols9 auto); }
       .images li, .images img{ @include size($cols3 auto); }
@@ -242,7 +237,7 @@
           width: $cols3;
           ul li a{ font-size: 1.2em; }
         }
-        .content{ width: $cols12; margin-left: $cols3 + $gutter / $em; }
+        .content{ width: $cols12; }
       }
       .blogimg, .blogimg img{ @include size($cols12 auto); }
       .images li, .images img{ @include size($cols3 auto); }
@@ -262,14 +257,14 @@
           background: url($king-220) no-repeat top right;
           ul li a{ font-size: 1.5em; }
         }
-        .content{ width: $cols14; margin-left: $cols4 + $gutter / $em; }
+        .content{ width: $cols14;}
       }
       .blogimg, .blogimg img{ @include size($cols14 auto); }
       .images li, .images img{ @include size($cols7 auto); }
       .images li:nth-child(2n+2){ margin-right: 0px; }
     }
 
-  // 18 Cols
+  // 22 Cols
     @media screen and (min-width: $cols22){
       //.container::before{ content: '$cols22'; }
       .container{
@@ -280,7 +275,7 @@
           background: url($king-220) no-repeat top right;
           ul li a{ font-size: 1.5em; }
         }
-        .content{ width: $cols18; margin-left: $cols4 + $gutter / $em; }
+        .content{ width: $cols18; }
       }
       .blogimg, .blogimg img{ @include size($cols18 auto); }
       .images li, .images img{ @include size($cols6 auto); }
