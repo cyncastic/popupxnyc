@@ -11,7 +11,7 @@ $ ->
         myTitle = "<span class='sold'>" + $(el).data('title') + "</span>"
       else
         myTitle = $(el).data('title')
-      if $(el).attr('data-price')
+      if $(el).attr('data-price') isnt 'null'
         myPrice = "<div class='price'>" + "$" + $(el).data('price') + "</div>"
       else
         myPrice = ""
