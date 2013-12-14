@@ -1,3 +1,8 @@
-#artwork-container
-	%h1=@artwork.title
-	= image_tag @artwork.image_url(:large).to_s
+.artwork-container
+  = image_tag @artwork.image_url(:large).to_s
+  %h1=@artwork.title
+  %h2 by #{ @artwork.artist }
+  %ul
+    %li=@artwork.medium
+    %li=@artwork.year
+    %li #{@artwork.width} x #{@artwork.length}
