@@ -11,12 +11,13 @@ $ ->
         myTitle = "<span class='sold'>" + $(el).data('title') + "</span>"
       else
         myTitle = $(el).data('title')
-      if $(el).attr('data-price') isnt 'undefined'
+      if $(el).attr('data-price')
         myPrice = "<div class='price'>" + "$" + $(el).data('price') + "</div>"
       else
         myPrice = ""
       [el.href, myTitle + '<br />' + 
-                myPrice +
+                $(el).data('artist') + '<br />' +
+                myPrice  +
                 $(el).data('medium') + '<br />' + 
                 $(el).data('year') + 
                 '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 
