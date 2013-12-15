@@ -1,6 +1,6 @@
 Popupxnyc::Application.routes.draw do
 
-  root 'static#home'
+  root 'blogs#index'
 
   resources :users
   resources :artworks
