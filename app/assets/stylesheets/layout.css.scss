@@ -94,7 +94,7 @@
     header.main, .content{ @include inline-block; vertical-align: top;}
     header.main{
       background: red;
-      margin-right: ($gutter - 3px) / $em;
+      margin-right: ($gutter - 4px) / $em;
       text-align: right;
       nav{
         position: relative;
