@@ -15,8 +15,8 @@ $ ->
         myPrice = "<div class='price'>" + "$" + $(el).data('price') + "</div>"
       else
         myPrice = ""
-      [el.href, myTitle + '<br />' + 
-                $(el).data('artist') + '<br />' +
+      [el.href, $(el).data('artist') + '<br />' +
+                myTitle + '<br />' + 
                 myPrice  +
                 $(el).data('medium') + '<br />' + 
                 $(el).data('year') + 
