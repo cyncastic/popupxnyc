@@ -188,6 +188,40 @@
     }
   }
   
+  p.contact{
+    font-size: 2em;
+    line-height: 1.5em;
+    a{
+      display: block;
+      color: $pink-light;
+      transition: color .2s ease-in-out;
+      &:hover{
+        color: $pink-dark;
+      }
+    }
+  }
+  
+  #social-links{
+    li{
+      display: inline;
+      a{
+        font: 0/0;
+        text-shadow: none;
+        color: transparent;
+        display: block;
+        float: left;
+        width: 128px;
+        height: 128px;
+        transition: all .2s ease-in-out;
+        &:hover{
+          @include transform(translateY(-10px));
+          transition: all .5s ease-in-out
+        }
+        &#facebook{  background: url('https://s3.amazonaws.com/deps1/static/Facebook-icon.png')  no-repeat; }
+        &#instagram{ background: url('https://s3.amazonaws.com/deps1/static/Instagram-icon.png') no-repeat; }
+      }
+    }
+  }
 
  @import 'admin';
 
@@ -210,6 +244,7 @@
       }
       .blogimg, .blogimg img{ @include size($cols2 auto); }
       .images li, .images img{ @include size($cols2 auto); }
+      p.contact{ font-size: 1em; }
     }
 
   // 8 Cols
@@ -223,6 +258,7 @@
       .blogimg, .blogimg img{ @include size($cols6 auto); }
       .images li, .images img{ @include size($cols3 auto); }
       .images li:nth-child(2n+2){ margin-right: 0; }
+      p.contact{ font-size: 1.25em; }
     }
 
   // 12 Cols
@@ -243,6 +279,7 @@
       .images li, .images img{ @include size($cols3 auto); }
       .images li:nth-child(2n+2){ margin-right: $gutter; }
       .images li:nth-child(3n+3){ margin-right: 0; }
+      p.contact{ font-size: 1.5em; }
     }
 
   // 14 Cols
@@ -260,6 +297,7 @@
       .images li, .images img{ @include size($cols3 auto); }
       .images li:nth-child(3n+3){ margin-right: $gutter; }
       .images li:nth-child(4n+4){ margin-right: 0; }
+      p.contact{ font-size: 1.75em; }
     }
 
   // 18 Cols
@@ -279,6 +317,7 @@
       .blogimg, .blogimg img{ @include size($cols14 auto); }
       .images li, .images img{ @include size($cols7 auto); }
       .images li:nth-child(2n+2){ margin-right: 0px; }
+      p.contact{ font-size: 2em; }
     }
 
   // 22 Cols
@@ -298,4 +337,5 @@
       .images li, .images img{ @include size($cols6 auto); }
       .images li:nth-child(2n+2){ margin-right: $gutter; }
       .images li:nth-child(3n+3){ margin-right: 0px; }
+      p.contact{ font-size: 3em; }
     }
