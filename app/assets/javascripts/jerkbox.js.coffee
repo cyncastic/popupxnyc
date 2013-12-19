@@ -21,4 +21,4 @@ $ ->
                 $(el).data('medium') + '<br />' + 
                 $(el).data('year') + 
                 '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + 
-                $(el).data('length') + 'x' + $(el).data('width')]
+                $(el).data('width') + 'x' + $(el).data('length')]
