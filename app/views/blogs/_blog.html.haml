@@ -1,7 +1,7 @@
 %article
   %header
     %h1= link_to blog.title, blog
-    .posted= blog.posted
+    .posted= blog.posted.strftime("%B %d, %Y")
   .blogimg{ href: blog_url(blog.id) }=image_tag blog.image_url(:large), alt: blog.title
   .post= raw(blog.post)
   %footer
