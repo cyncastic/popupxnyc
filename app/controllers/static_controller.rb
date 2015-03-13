@@ -1,12 +1,7 @@
 class StaticController < ApplicationController
-  skip_before_filter :authorize, only: [:home, :contact, :instagram]
+  skip_before_filter :authorize, only: [ :instagram ]
 
-  layout "static"
-
-  def home
-  end
-
-  def contact
+  def instagram
   end
 
 end
