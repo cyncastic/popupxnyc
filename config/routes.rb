@@ -7,6 +7,7 @@ Popupxnyc::Application.routes.draw do
 
   get 'contact' => 'contact#index'
   get 'test' => 'static#test'
+  get 'instagram' => 'static#instagram'
   get 'admin' => 'admin#index'
 
   resources :blogs, :users, :media
